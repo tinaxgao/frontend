@@ -6,7 +6,6 @@
 .hero {
   border: 1px black solid;
   margin: 1rem;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,6 +68,15 @@
 /* /// END --- FOR EVENT DETAILS /// */
 
 /* DISH & GUEST INFO FOR POTLUCK PAGE */
+.guest-list {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
 .dish-container{
   border: 1px black solid;
   margin: .5rem;
@@ -82,4 +90,8 @@
 .dish {
   border: 1px black solid;
   margin: .5rem;
+}
+
+.event-edit {
+  text-align: right;
 }
