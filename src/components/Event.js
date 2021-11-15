@@ -23,7 +23,6 @@ const Event = () => {
 
   const handleToggle = () => {
     setEditing(!editing);
-    console.log(editing)
   };
 
   return (
