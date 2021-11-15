@@ -25,6 +25,7 @@ function App() {
           <Link to="/login">Login</Link><br/>
           <Link to="/logout">Logout</Link><br/>
           <br/>
+          {/* FOLLOWING LINKS ARE TEMPORARY */}
           <Link to="/profile">Profile</Link><br/> 
           <Link to="/event-list">Event List</Link><br/> 
           <Link to="/event">Event</Link><br/>

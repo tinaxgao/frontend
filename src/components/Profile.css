@@ -1,0 +1,11 @@
+.container {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px black solid;
+}
