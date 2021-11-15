@@ -1,13 +1,13 @@
 import React from 'react';
 
-function Home () {
+function Login () {
 
     return (
         <div className="home-container">
             <h2>=======</h2>
-            <h2>Home.JS</h2>
+            <h2>Login.JS</h2>
         </div>
     )
 }
 
-export default Home;
+export default Login;
