@@ -33,8 +33,6 @@ function Login () {
                 console.log('Login: ', error);
                 setLoginFailed(true);
             })
-
-        navigate('/profile'); // FOR TESTING ONLY - REMOVE LATER
     }
 
     return (
