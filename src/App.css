@@ -95,3 +95,32 @@
 .event-edit {
   text-align: right;
 }
+ /*EVENT LIST STYLING*/
+.event-list-heading{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.create-btn {
+  width: 15%;
+  margin: 1%;
+  border-radius: 8px;
+}
+.event-list-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2%;
+}
+.event-list{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 45%;
+  margin: 2%;
+}
+.event-list img{
+  width: 100%;
+}
+/* END OF EVENT LIST*/
