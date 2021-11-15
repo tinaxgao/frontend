@@ -1,14 +1,14 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const CreateEvent = () => {
+const Event = () => {
 
     return (
-        <div className="create-event-container">
+        <div className="event">
             <h2>=======</h2>
-            <h2>CreateEvent.JS</h2>
+            <h2>Event.JS</h2>
         </div>
     )
 }
 
-export default CreateEvent;
+export default Event;
