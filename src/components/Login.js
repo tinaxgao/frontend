@@ -14,7 +14,6 @@ function Login () {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        console.log('Typing')
         setCredentials({
             ...credentials,
             [e.target.name]: e.target.value
@@ -23,19 +22,17 @@ function Login () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // axios.post('/login', credentials)
-        //     .then( response => {
-        //         console.log('Login: ', response);
-        //         localStorage.setItem('toke', response.data.token);
-        //         navigate('/profile');
-        //         setLoginFailed(false);
-        //     })
-        //     .catch( error => {
-        //         console.log('Login: ', error);
-        //         setLoginFailed(true);
-        //     })
-
-        navigate('/profile'); // FOR TESTING ONLY - REMOVE LATER
+        axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
+            .then( response => {
+                console.log('Login: ', response);
+                localStorage.setItem('token', response.data.token);
+                navigate('/profile');
+                setLoginFailed(false);
+            })
+            .catch( error => {
+                console.log('Login: ', error);
+                setLoginFailed(true);
+            })
     }
 
     return (
