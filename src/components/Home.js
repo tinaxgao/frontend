@@ -5,7 +5,7 @@ function Home () {
     return (
         <div className="home-container">
             <h2>=======</h2>
-            <h1>Home.JS</h1>
+            <h2>Home.JS</h2>
         </div>
     )
 }

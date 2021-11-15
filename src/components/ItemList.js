@@ -5,7 +5,7 @@ const ItemList = () => {
     return (
         <div className="home-page">
             <h2>=======</h2>
-            <h1>Item List .JS</h1>
+            <h2>Item List .JS</h2>
         </div>
     )
 }
