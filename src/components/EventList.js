@@ -1,20 +1,21 @@
 import React from 'react';
-import Event from './Event';
+// import Event from './Event';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import axios from 'axios';
+// import { useHistory } from 'react-router';
 
 const EventList = () => {
-
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     push("/create-event")
-    // }
+    
+    // const {push} = useHistory();
+    const handleSubmit = e => {
+        e.preventDefault();
+        // push("/create-event");
+    }
 
     return (
         <div className="event-list-container">
             <div className="event-list-heading">
                 <h2>FirstName's Potluck</h2>
-                <button className="create-btn">+ Create a Potluck</button>
+                <button onClick={handleSubmit} className="create-btn">+ Create a Potluck</button>
             </div>
             <div className="event-list">
 
