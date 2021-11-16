@@ -4,6 +4,8 @@ import GuestDetails from "./Guest-List/GuestDetails";
 
 import EventTitle from "./Guest-List/Event-Title/EventTitle";
 import EventTitleForm from "./Guest-List/Event-Title/EventTitleForm";
+import AddGuest from "./Guest-List/AddGuest";
+import useAttending from "./hooks/useAttending";
 
 const Event = () => {
   const initialState = {
@@ -15,10 +17,13 @@ const Event = () => {
     guests: [
       { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
       { id: 2, firstName: "Luigi", dish: "Apple Pie" },
+      { id: 3, firstName: "Yoshi", dish: "Roast Potatoes" },
+      { id: 4, firstName: "Peach", dish: "Sake" }
     ],
   };
 
   const [editing, setEditing] = useState(false);
+  const [attending, handleAttending] = useAttending(false);
 
   useEffect(() => {
     // axiosWithAuth().get().then().catch() get info about the event
@@ -36,11 +41,12 @@ const Event = () => {
         <EventTitleForm state={initialState} />
       )}
       <section className="guest-list">
-        <button class="btn-primary">Attend</button>
+        <button onClick={handleAttending} className="btn-primary">Attend</button>
+        <div className="attending">{attending && <AddGuest attending={attending} handleAttending={handleAttending} />}</div>
       </section>
       <section className="guest-list">
         {initialState.guests.map((i) => (
-          <GuestDetails guests={i} />
+          <GuestDetails guests={i} key={i.id}/>
         ))}
       </section>
       <section className="event-edit">
