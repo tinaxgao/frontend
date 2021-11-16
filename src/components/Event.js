@@ -1,37 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import GuestDetails from "./Guest-List/GuestDetails";
+
+import EventTitle from "./Guest-List/Event-Title/EventTitle";
+import EventTitleForm from "./Guest-List/Event-Title/EventTitleForm";
 
 const Event = () => {
+  const initialState = {
+    firstName: "First Name",
+    title: "Potluck Title",
+    location: "Location",
+    date: "MM/DD/YY",
+    description: "Description Description Description",
+    guests: [
+      { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
+      { id: 2, firstName: "Luigi", dish: "Apple Pie" },
+    ],
+  };
+
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    // axiosWithAuth().get().then().catch() get info about the event
+  }, []);
+
+  const handleToggle = () => {
+    setEditing(!editing);
+  };
+
   return (
     <div>
-      <section className="hero">
-        <h1>FirstName is hosting a Title at Location on Date</h1>
-        <p>
-          Description Description Description Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </section>
+      {!editing ? (
+        <EventTitle state={initialState} />
+      ) : (
+        <EventTitleForm state={initialState} />
+      )}
       <section className="guest-list">
         <button class="btn-primary">Attend</button>
       </section>
       <section className="guest-list">
-        <div className="dish-container">
-          <div className="guest">Guestname is bringing</div>
-          <div className="dish">Pumpkin Pie</div>
-        </div>
-        <div className="dish-container">
-          <div className="guest">Guestname is bringing</div>
-          <div className="dish">Apple Pie</div>
-        </div>
-        <div className="dish-container">
-          <div className="guest">Guestname is bringing</div>
-          <div className="dish">Pecan Pie</div>
-        </div>
+        {initialState.guests.map((i) => (
+          <GuestDetails guests={i} />
+        ))}
       </section>
       <section className="event-edit">
-        <button class="btn-tertiary">Edit</button>
+        <button onClick={handleToggle} class="btn-tertiary">
+          Edit
+        </button>
         <button class="btn-tertiary">Delete</button>
       </section>
     </div>

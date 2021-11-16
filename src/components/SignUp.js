@@ -1,66 +1,46 @@
-import './SignUp.css';
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
 import axios from 'axios';
+import './SignUp.css';
+import { useNavigate } from 'react-router-dom';
 
-// import { userActions } from '../_actions';
-
+const submitCredentials = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
+    password: ""
+}
 
 
 function SignUp () {
 
+    const [credentials, setCredentials] = useState(submitCredentials);
+    const [submitFailed, setSubmitFailed] = useState(false);
+    const navigate = useNavigate();
 
+    const handleChange = (e) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('https://lambdapotluck.herokuapp.com/api/auth/register', credentials)
+            .then( response => {
+                console.log('Sign-up: ', response);
+                localStorage.setItem('token', response.data.token);
+                navigate('/profile');
+                setSubmitFailed(false);
+            })
+            .catch( error => {
+                console.log('Sign-up: ', error);
+                setSubmitFailed(true);
+            })
+    }
    
 
-        const [submitted, setSubmitted] = useState(false);
-        const registering = useSelector(state => state.registration.registering);
-        const dispatch = useDispatch();
-    
-        // reset login status
-        useEffect(() => {
-            dispatch(userActions.logout());
-        }, []);
-    
-
-        // REgistration 
-        function register(user) {
-            return dispatch => {
-                dispatch(request(user));
-        
-                userService.register(user)
-                    .then(
-                        user => { 
-                            dispatch(success());
-                            history.push('/login');
-                            dispatch(alertActions.success('Registration successful'));
-                        },
-                        error => {
-                            dispatch(failure(error.toString()));
-                            dispatch(alertActions.error(error.toString()));
-                        }
-                    );
-            };
-        
-            function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
-            function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
-            function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
-        }
-            
-            // Finished
-        function handleChange(e) {
-            const { name, value } = e.target;
-            setUser(user => ({ ...user, [name]: value }));
-        }
-    
-        function handleSubmit(e) {
-            e.preventDefault();
-    
-            setSubmitted(true);
-            if (user.firstName && user.lastName && user.username && user.password) {
-                dispatch(userActions.register(user));
-            }
-       }
     
     return (
         <section class="registration-form">
@@ -74,14 +54,20 @@ function SignUp () {
          <div>       
         <label for="fname">First Name</label>
         </div>
-        <input type="text" id="fname" name="fname" />
+        <input type="text" id="fname" 
+                    name="fname" 
+                    value={credentials.firstName} 
+                    onChange={handleChange} />
         </div>
         <br/>
         <div>
         <div class='last-name namefield'>       
         <label for="lname">Last Name</label>
         </div>
-        <input type="text" id="lname" name="lname" />
+        <input type="text" id="lname" 
+                    name="lname" 
+                    value={credentials.lastName} 
+                    onChange={handleChange}/>
         </div>
         </div>
         <div class="three-inputs">
@@ -89,19 +75,28 @@ function SignUp () {
             <div>       
                <label for="email">Email</label>
                </div>
-               <input type="text" id="email" name="email" /><br/><br/>
+               <input type="text" id="email" 
+                    name="email"   
+                    value={credentials.email} 
+                    onChange={handleChange}/><br/><br/>
                </div>
                <div>
                 <div>       
                <label for="username">Username</label>
                </div>
-               <input type="text" id="username" name="username" /><br/><br/>
+               <input type="text" id="username" 
+                    name="username"   
+                    value={credentials.username} 
+                    onChange={handleChange} /><br/><br/>
                </div>
                <div>
                 <div>       
                <label for="password">Password</label>
                </div>
-               <input type="text" id="password" name="password" /><br/><br/>
+               <input type="text" id="password" 
+                    name="password"   
+                    value={credentials.password} 
+                    onChange={handleChange}/><br/><br/>
                </div>
            </div>
            <div class = 'button-div'>
@@ -109,6 +104,7 @@ function SignUp () {
                <br/>
                <p>Already have an account? Log in.</p>
            </div>
+           { submitFailed && <p>Please Try Again Later</p>}
            </section>   
     )
 }

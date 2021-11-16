@@ -9,7 +9,7 @@ import './Profile.css';
 const Profile = (props) => {
     
     const name = 'Sean'; // TEMP - Replace w. props.firstName here and in JSX
-    const [eventList, setEventList ] = useState([])
+    const [ eventList, setEventList ] = useState([])
     const navigate = useNavigate();
 
     // ----- On click, navigate to Create Event form
