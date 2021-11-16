@@ -10,13 +10,14 @@ function Logout () {
     //     .then( response => {
     //         localStorage.removeItem('token');
     //         navigate('/');
-    //         console.log('Logout: ', response); // REMOVE
+    //         console.log('Logout: ', response); // FOR TESTING ONLY - REMOVE LATER
     //     })
     //     .catch( error => {
     //         console.log('Logout: ', error);
     //     })
-    
+
     navigate('/'); // FOR TESTING ONLY - REMOVE LATER
+
 
     return (
         <div></div>
