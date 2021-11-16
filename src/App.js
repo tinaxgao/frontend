@@ -16,24 +16,32 @@ function App() {
   return (
     <BrowserRouter>
 
-      <header className="App-header">
-        <h1>Potluck Planner</h1>
-        <h2>App.JS</h2>
-        <nav>
-          <Link to="/">Home</Link><br/>
-          <Link to="/signup">Signup</Link><br/>
-          <Link to="/login">Login</Link><br/>
-          <Link to="/logout">Logout</Link><br/>
-          <br/>
-          {/* FOLLOWING LINKS ARE TEMPORARY */}
-          <Link to="/profile">Profile</Link><br/> 
-          <Link to="/event-list">Event List</Link><br/> 
-          <Link to="/event">Event</Link><br/>
-          <br/>
-          <Link to="/event-details">Event Details</Link><br/>
-          <Link to="/create-event">Create Event</Link><br/>
+      <header>
+        <nav className="nav-container">
+          <div className="nav-left">
+            <Link to="/">Home</Link><br/>
+          </div>
+          <div className="nav-center">
+            <h1>Potluck Planner</h1>
+          </div>
+          <div className="nav-right">
+            <Link to="/signup">Signup</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/logout">Logout</Link>
+          </div>
         </nav>
       </header>
+
+      {/* FOLLOWING LINKS ARE TEMPORARY */}
+      <div className='temp-container'>        
+        <p>Temporary links for testing</p>
+        <Link to="/profile">Profile</Link><br/> 
+        <Link to="/event-list">Event List</Link><br/> 
+        <Link to="/event">Event</Link><br/>
+        <br/>
+        <Link to="/event-details">Event Details</Link><br/>
+        <Link to="/create-event">Create Event</Link><br/>
+      </div>
 
       <div className="body-container">
         <Routes>
