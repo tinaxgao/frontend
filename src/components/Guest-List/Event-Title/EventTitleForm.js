@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { updateEvent } from "../actions/guestActions";
-
 const EventTitleForm = ({ state }) => {
   return (
     <section className="hero">

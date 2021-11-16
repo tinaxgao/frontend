@@ -1,7 +1,5 @@
 import React from "react";
 
-import { toggleEditing } from "../actions/guestActions";
-
 const EventTitle = ({ state }) => {
   return (
     <section className="hero">
