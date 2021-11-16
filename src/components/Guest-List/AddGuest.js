@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddGuest = (props) => {
-console.log(props)
+
   return (
     <div>
       I'm attending and bringing ___
