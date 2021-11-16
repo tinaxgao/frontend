@@ -29,6 +29,7 @@ body {
 
 * {
     font-size: 62.5%;
+    max-width: 100%;
 }
 
 body {

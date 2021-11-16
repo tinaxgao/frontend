@@ -33,11 +33,12 @@ const CreateEvent = () => {
     }
 
     return (
-        <div className="create-event">
-            <h2>=======</h2>
+
+        <div className="create-event container">
             <h2>Create a Potluck Event!</h2>
             <form onSubmit ={handleSubmit}>
-                <label>Title:
+                
+              <label>Title:
                     <input
                         type="text"
                         name="title"
@@ -45,8 +46,9 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Title Here"
                     />
-                </label><br/>
-                <label>Date:
+              </label><br/>
+
+              <label>Date:
                     <input
                         type="date"
                         name="date"
@@ -54,8 +56,9 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Date Here"
                     />
-                </label><br/>
-                <label>Location:
+              </label><br/>
+
+              <label>Location:
                     <input
                         type="text"
                         name="location"
@@ -63,8 +66,9 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Location"
                     />
-                </label><br/>
-                <label>Description:
+              </label><br/>
+
+              <label>Description:
                     <input
                         type="text"
                         name="description"
@@ -73,6 +77,7 @@ const CreateEvent = () => {
                         placeholder="Enter Description Here"
                     />
                 </label><br/>
+
                 <input type="submit" value="Create Potluck" />
             </form>
         </div>

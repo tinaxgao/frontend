@@ -38,7 +38,7 @@ function Login () {
 
     return (
         <div className="container">
-            <h2>Login.JS</h2>
+            <h2>Enter your username and password</h2><br/>
             <form onSubmit={handleSubmit}>
 
                 <label for="username">Username: </label>
