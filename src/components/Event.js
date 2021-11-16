@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import GuestDetails from "./Guest-List/GuestDetails";
 
-import EventTitle from "./Event-Title/EventTitle";
-import EventTitleForm from "./Event-Title/EventTitleForm";
+import EventTitle from "./Guest-List/Event-Title/EventTitle";
+import EventTitleForm from "./Guest-List/Event-Title/EventTitleForm";
 
 const Event = () => {
   const initialState = {
@@ -12,7 +12,10 @@ const Event = () => {
     location: "Location",
     date: "MM/DD/YY",
     description: "Description Description Description",
-    guests: [],
+    guests: [
+      { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
+      { id: 2, firstName: "Luigi", dish: "Apple Pie" },
+    ],
   };
 
   const [editing, setEditing] = useState(false);
@@ -27,7 +30,7 @@ const Event = () => {
 
   return (
     <div>
-      {editing ? (
+      {!editing ? (
         <EventTitle state={initialState} />
       ) : (
         <EventTitleForm state={initialState} />
@@ -36,7 +39,9 @@ const Event = () => {
         <button class="btn-primary">Attend</button>
       </section>
       <section className="guest-list">
-        <GuestDetails />
+        {initialState.guests.map((i) => (
+          <GuestDetails guests={i} />
+        ))}
       </section>
       <section className="event-edit">
         <button onClick={handleToggle} class="btn-tertiary">
