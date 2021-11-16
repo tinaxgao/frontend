@@ -43,6 +43,7 @@ function SignUp () {
             })
         */
     }
+
     
     return (
         <section className="registration-form">
