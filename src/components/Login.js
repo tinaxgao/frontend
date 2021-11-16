@@ -26,6 +26,7 @@ function Login () {
             .then( response => {
                 console.log('Login: ', response);
                 localStorage.setItem('token', response.data.token);
+                localStorage.setItem('username', credentials.username); // QUESTION: Pass here or through Props?
                 navigate('/profile');
                 setLoginFailed(false);
             })
