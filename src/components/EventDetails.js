@@ -9,7 +9,8 @@ import useAttending from "../hooks/useAttending";
 
 const EventDetails = () => {
     const initialState = {
-        firstName: "First Name",
+        id: 123,
+        firstName: "First Name of Host",
         title: "Potluck Title",
         location: "Location",
         date: "MM/DD/YY",
@@ -21,15 +22,15 @@ const EventDetails = () => {
           { id: 4, firstName: "Peach", dish: "Sake" },
         ],
       };
-    
+
+      const [state, setState] = useState(initialState);
       const [editing, setEditing] = useState(false);
-      
+      const [attending, handleAttending] = useAttending(false);
+
       const handleToggle = () => {
         setEditing(!editing);
       };
-    
-      const [attending, handleAttending] = useAttending(false);
-    
+      
       useEffect(() => {
         axiosWithAuth() //NOT THE CORRECT INFO YET, JUST TESTING API
           .get()
@@ -40,15 +41,13 @@ const EventDetails = () => {
             console.log(err);
           });
       }, []);
-    
-      
-    
+
       return (
         <div>
           {!editing ? (
-            <EventTitle state={initialState} />
+            <EventTitle state={state} />
           ) : (
-            <EventTitleForm state={initialState} />
+            <EventTitleForm state={state} />
           )}
           <section className="guest-list">
             <button onClick={handleAttending} className="btn-primary">
@@ -61,7 +60,7 @@ const EventDetails = () => {
             </div>
           </section>
           <section className="guest-list">
-            {initialState.guests.map((i) => (
+            {state.guests.map((i) => (
               <GuestDetails guests={i} key={i.id} />
             ))}
           </section>
