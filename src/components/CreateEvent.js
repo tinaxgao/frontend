@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const initialEvent = {
     title:"",
@@ -9,6 +11,7 @@ const initialEvent = {
 
 const CreateEvent = () => {
     const [event, setEvent] = useState(initialEvent);
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setEvent({
@@ -16,15 +19,23 @@ const CreateEvent = () => {
             [e.target.name]: e.target.value
         })
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        axiosWithAuth().post('/create', event)
+            .then(response => {
+                console.log('CreateEvent.js: ', response);
+                navigate('/profile');
+            })
+            .catch(error => {
+                console.log('CreateEvent.js: ', error)
+            })
     }
 
-    
     return (
         <div className="create-event">
             <h2>=======</h2>
-            <h2>CreateEvent.JS</h2>
+            <h2>Create a Potluck Event!</h2>
             <form onSubmit ={handleSubmit}>
                 <label>Title:
                     <input
@@ -34,16 +45,16 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Title Here"
                     />
-                </label>
+                </label><br/>
                 <label>Date:
                     <input
-                        type="text"
+                        type="date"
                         name="date"
                         value={event.date}
                         onChange={handleChange}
                         placeholder="Enter Date Here"
                     />
-                </label>
+                </label><br/>
                 <label>Location:
                     <input
                         type="text"
@@ -52,7 +63,7 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Location"
                     />
-                </label>
+                </label><br/>
                 <label>Description:
                     <input
                         type="text"
@@ -61,7 +72,7 @@ const CreateEvent = () => {
                         onChange={handleChange}
                         placeholder="Enter Description Here"
                     />
-                </label>
+                </label><br/>
                 <input type="submit" value="Create Potluck" />
             </form>
         </div>

@@ -25,7 +25,7 @@ function App() {
             <h1>Potluck Planner</h1>
           </div>
           <div className="nav-right">
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">Sign Up</Link>
             <Link to="/login">Login</Link>
             <Link to="/logout">Logout</Link>
           </div>
@@ -45,16 +45,16 @@ function App() {
 
       <div className="body-container">
         <Routes>
-          <Route  path="/signup" element={<SignUp />}/>
-          <Route  path="/login" element={<Login />}/>
-          <Route  path="/logout" element={<Logout />}/>
+          <Route path="/signup" element={<SignUp />}/>
+          <Route path="/login" element={<Login />}/>
+          <Route path="/logout" element={<Logout />}/>
 
-          <Route  path="/profile" element={<Profile />}/>
-          <Route  path="/event-list" element={<EventList />}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/event-list" element={<EventList />}/>
           <Route path="/event" element={<Event />} />
 
-          <Route  path="/event-details" element={<EventDetails />}/>
-          <Route  path="/create-event" element={<CreateEvent />}/>
+          <Route path="/event-details" element={<EventDetails />}/>
+          <Route path="/create-event" element={<CreateEvent />}/>
         </Routes>
       </div>
 
