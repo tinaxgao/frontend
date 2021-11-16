@@ -39,9 +39,7 @@ function SignUp () {
                 setSubmitFailed(true);
             })
     }
-   
-
-    
+    console.log(credentials);
     return (
         <section class="registration-form">
         <div class="title">
