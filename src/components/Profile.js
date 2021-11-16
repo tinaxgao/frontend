@@ -36,9 +36,8 @@ const Profile = (props) => {
 
     return (
         <div className="container">
-            <h2>Profile.JS</h2>
             <div className="profile-header">
-                <h4>{name}'s Potluck</h4>
+                <h4>{name}'s Potluck Events!</h4>
                 <button className="btn-secondary" onClick={handleCreate}>+ Create a Potluck</button>
             </div>
             <div className="event-list">
