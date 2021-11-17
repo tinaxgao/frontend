@@ -62,7 +62,7 @@ table {
   margin: 0;  /* May already be in the reset */
 }
 
-/* ===== HEADER - NAV ===== */
+/* ===== HEADER - NAV - FOOTER ===== */
 header {
   margin: auto;
   border: 1px black solid;
@@ -98,9 +98,15 @@ header {
 .temp-container {
   width: 80%;
   display: flex;
-  /* text-align: center; */
+  justify-content: space-evenly;
   margin: auto;
-  border: 2px solid red
+}
+footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid red
 }
 
 /* =============== */
