@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className="modal-container container" title="food-table">
             <h2>Welcome to Potluck Planner!</h2>
-            <div className="modal-btn">
+            <div className="modal-btn" >
                 <Link to='/signup'>Sign Up</Link>
             </div>    
             <div className="modal-btn">

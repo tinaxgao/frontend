@@ -9,11 +9,17 @@ width:100%;
 }
 
 .modal-container,h2{
-    font-family: cursive;
     justify-content: center;
-    margin: 25%;
+    background-color: white;
+    
     color:gold;
     text-align: center;
 }
 
+.modal-btn{
+    justify-content: center;
+    background-color:white;
+    color: white;
+    font-size: 2rem;
+}
 

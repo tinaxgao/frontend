@@ -38,6 +38,7 @@ const Profile = () => {
     // console.log('Profile-eventList: ', eventList); // <<<<<< CONSOLE LOG
 
     return (
+        <div className="full-profile">
         <div className="container">
             <div className="profile-header">
                 <h4>Your Potluck Events!</h4>
@@ -46,6 +47,7 @@ const Profile = () => {
             <div className="event-list">
                 <EventList eventList={eventList}/>
             </div>
+        </div>
         </div>
     )
 }
