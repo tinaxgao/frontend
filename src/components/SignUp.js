@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const submitCredentials = {
     firstName: "",
@@ -27,21 +27,13 @@ function SignUp () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit Click: ", credentials);  // REMOVE WHEN AXIOS UPDATED
-        navigate('/login'); // REMOVE WHEN AXIOS UPDATED
-        /*
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/register', credentials)
             .then( response => {
-                console.log('Sign-up: ', response);
-                localStorage.setItem('token', response.data.token);
                 navigate('/login');
-                setSubmitFailed(false);
             })
             .catch( error => {
                 console.log('Sign-up: ', error);
-                setSubmitFailed(true);
             })
-        */
     }
 
     
@@ -49,8 +41,6 @@ function SignUp () {
         <section className="registration-form">
             <form className="signUpForm" onSubmit={handleSubmit}>
                 <h2 className="title">Sign up for your account</h2>
-                <br/>
-                <h3 className="subTitle">to plan or attend a potluck!</h3>
                     <div className="inputContainer">   
                         <label for="firstName" className="label">First Name</label>
                         <input 
@@ -114,7 +104,8 @@ function SignUp () {
                         />
                     </div>
                 <button type="submit" class="submitBtn" value="Sign up">Sign Up</button>
-                    {/* <p>Already have an account? Log in.</p> */}
+                <p>Already have an account?</p>
+                <Link to='/login'>Login</Link>
             </form>
         </section>   
     )
