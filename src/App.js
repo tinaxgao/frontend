@@ -40,14 +40,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/home" element={<Home />}/>
+          
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />}/>
 
           <Route path="/profile" element={<Profile />}/>
-          {/* <Route path="/event-list/" element={<EventList />}/> */}
-          {/* <Route path="/event" element={<Event />} /> */}
-
           <Route path="/event-details/:id" element={<EventDetails />}/>
           <Route path="/create-event" element={<CreateEvent />}/>
         </Routes>
