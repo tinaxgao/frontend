@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SignUp.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const submitCredentials = {
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     username: "",
     password: ""
@@ -27,23 +27,17 @@ function SignUp () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Submit Click: ", credentials);  // REMOVE WHEN AXIOS UPDATED
-        navigate('/login'); // REMOVE WHEN AXIOS UPDATED
-        /*
+
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/register', credentials)
             .then( response => {
-                console.log('Sign-up: ', response);
-                localStorage.setItem('token', response.data.token);
+                console.log('Sign-up: ', response); // <<<<< REMOVE CONSOLE LOG LATER
                 navigate('/login');
-                setSubmitFailed(false);
             })
             .catch( error => {
                 console.log('Sign-up: ', error);
-                setSubmitFailed(true);
+                // setSubmitFailed(true);
             })
-        */
     }
-
     
     return (
         <section className="registration-form">
@@ -57,28 +51,28 @@ function SignUp () {
                 <div className="name">
                     <div className='first-name namefield'>
                 <div>       
-                <label for="firstName">First Name</label>
+                <label htmlFor="firstName">First Name</label>
                 </div>
                 <input type="text" id="firstName" 
-                            name="firstName" 
-                            value={credentials.firstName} 
+                            name="first_name" 
+                            value={credentials.first_name} 
                             onChange={handleChange} />
                 </div>
                 <br/>
                 <div>
-                <div className='last-name namefield'>       
-                <label for="lastName">Last Name</label>
+                <div className='lastName namefield'>       
+                <label htmlFor="lastName">Last Name</label>
                 </div>
                 <input type="text" id="lastName" 
-                            name="lastName" 
-                            value={credentials.lastName} 
+                            name="last_name" 
+                            value={credentials.last_name} 
                             onChange={handleChange}/>
                 </div>
                 </div>
                 <div className="three-inputs">
                 <div>
                     <div>       
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     </div>
                     <input type="email" id="email" 
                             name="email"   
@@ -87,7 +81,7 @@ function SignUp () {
                     </div>
                     <div>
                         <div>       
-                    <label for="username">Username</label>
+                    <label htmlFor="username">Username</label>
                     </div>
                     <input type="text" id="username" 
                             name="username"   
@@ -96,7 +90,7 @@ function SignUp () {
                     </div>
                     <div>
                         <div>       
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     </div>
                     <input type="password" id="password" 
                             name="password"   
@@ -107,7 +101,8 @@ function SignUp () {
                 <div className='button-div'>
                     <button className='sign-in'>Submit</button>
                     <br/>
-                    {/* <p>Already have an account? Log in.</p> */}
+                    <p>Already have an account?</p>
+                    <Link to='/login'>Login</Link>
                 </div>
             </form>
         </section>   
