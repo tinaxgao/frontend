@@ -221,19 +221,16 @@ footer {
   margin: 1%;
   border-radius: 8px;
 }
-.event-list-container {
+
+.event-list{
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 2%;
-}
-.event-list{
-  display:flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 45%;
-  margin: 2%;
-}
-.event-list img{
   width: 100%;
+  margin: 2%;
+  background-color: aliceblue;
+  border:1px solid gray;
+
 }
+
+
