@@ -1,17 +1,23 @@
 import './App.css';
+import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+// ----- Page Imports -----
+import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Logout from './components/Logout';
 
+// TEMPORARY IMPORTS FOR TESTING
 import Profile from './components/Profile';
 import EventList from './components/EventList';
 import Event from './components/Event';
-
 import EventDetails from './components/EventDetails';
 import CreateEvent from './components/CreateEvent';
 
 function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <BrowserRouter>
@@ -19,20 +25,18 @@ function App() {
       <header>
         <nav className="nav-container">
           <div className="nav-left">
-            <Link to="/">Home</Link><br/>
+            {/* <Link to="/Home">Home</Link><br/> */}
           </div>
           <div className="nav-center">
             <h1>Potluck Planner</h1>
           </div>
           <div className="nav-right">
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/logout">Logout</Link>
+            { isLoggedIn && <Link to="/logout">Logout</Link>}
           </div>
         </nav>
       </header>
 
-      {/* FOLLOWING LINKS ARE TEMPORARY */}
+      {/* TEMPORARY LINKS FOR TESTING */}
       <div className='temp-container'>        
         <p>Temporary links for testing</p>
         <Link to="/profile">Profile</Link><br/> 
@@ -42,12 +46,15 @@ function App() {
         <Link to="/event-details">Event Details</Link><br/>
         <Link to="/create-event">Create Event</Link><br/>
       </div>
+      {/* TEMPORARY LINKS FOR TESTING */}
 
       <div className="body-container">
         <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/home" element={<Home />}/>
           <Route path="/signup" element={<SignUp />}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/logout" element={<Logout />}/>
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
+          <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />}/>
 
           <Route path="/profile" element={<Profile />}/>
           <Route path="/event-list" element={<EventList />}/>

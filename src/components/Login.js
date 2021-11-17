@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Q: Are we using an email or usename for sign in?
 const initialCredentials = {
@@ -8,7 +8,7 @@ const initialCredentials = {
     password: ""
 }
 
-function Login () {
+function Login (props) {
     const [credentials, setCredentials] = useState(initialCredentials);
     const [loginFailed, setLoginFailed] = useState(false);
     const navigate = useNavigate();
@@ -24,11 +24,11 @@ function Login () {
         e.preventDefault();
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
             .then( response => {
-                console.log('Login: ', response);
                 localStorage.setItem('token', response.data.token);
-                localStorage.setItem('username', credentials.username); // QUESTION: Pass here or through Props?
-                navigate('/profile');
+                localStorage.setItem('username', credentials.username); // Simply work around instead of using state in app.js or redux
                 setLoginFailed(false);
+                props.setIsLoggedIn(true);
+                navigate('/profile');
             })
             .catch( error => {
                 console.log('Login: ', error);
@@ -41,7 +41,7 @@ function Login () {
             <h2>Enter your username and password</h2><br/>
             <form onSubmit={handleSubmit}>
 
-                <label for="username">Username: </label>
+                <label htmlFor="username">Username: </label>
                 <input 
                     type="text" 
                     name="username" 
@@ -49,16 +49,19 @@ function Login () {
                     onChange={handleChange} 
                     placeholder="Enter username..." /><br/><br/>
 
-                <label for="password">Password: </label>
+                <label htmlFor="password">Password: </label>
                 <input 
                     type="password" 
                     name="password" 
                     value={credentials.password} 
                     onChange={handleChange} 
                     placeholder="Enter password..." /><br/><br/>
-
-                { loginFailed && <p className="error-msg">Username or password incorrect </p>}
+                <div>
+                    { loginFailed && <p className="error-msg">Username or password incorrect </p>}
+                </div>
                 <button>Login</button>
+                <p>Don't have an account?</p>
+                <Link to='/signup'>Sign Up</Link>
             </form>
 
         </div>
