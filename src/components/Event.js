@@ -17,21 +17,16 @@ const Event = (props) => {
 
   
   const handleClick =() => {
-    navigate(`/event-details/${organizer}`)
+    navigate(`/event-details/${event_id}`)
   }
   console.log(props.event)
   return (
   
-    <div className="event-list" key={event_id} onClick={handleClick}>
-        <div>
+    <div  key={event_id} onClick={handleClick}>
         <p>Date:{date}</p>
-        <div className="dish-list">
-          {/* dish.map(dish => {<p>{dish}</p>}) */}
-        </div>
         <h4>Name:{title}</h4> 
         <p>Location:{location}</p>
         <p>Host:{organizer}</p>
-        </div>
   </div>
 
   );
