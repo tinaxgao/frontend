@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 
-const EventTitleForm = ({ state }) => {
+const EventTitleForm = ({ state, setState, handleToggle }) => {
+  const [newEventInfo, setNewEventInfo] = useState(state);
+
+  const handleChange = (e) => {
+    console.log("handlechange name", e.target.value);
+    setNewEventInfo({ ...newEventInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit newEventInfo:", newEventInfo);
+    setState(newEventInfo);
+    handleToggle();
+  };
+
   return (
     <section className="hero">
-      <h1>Update Event text for {state.title}</h1>
-      <button>Update</button>
+      <form onSubmit={handleSubmit}>
+        <h1>
+          {state.firstName} is hosting a{" "}
+          <input type="text" name="title" onChange={handleChange} /> at{" "}
+          <input type="text" name="location" onChange={handleChange} /> on{" "}
+          <input type="date" name="date" onChange={handleChange} />
+        </h1>
+        <p>
+          <input type="text" name="description" onChange={handleChange} />
+        </p>
+        <button>Update</button>
+      </form>
     </section>
   );
 };

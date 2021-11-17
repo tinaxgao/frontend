@@ -11,14 +11,4 @@ const EventTitle = ({ state }) => {
   );
 };
 
-// const mapStateToProps = (state) => {
-//     return({
-//         firstName: state.firstName,
-//         title: state.title,
-//         location: state.location,
-//         date: state.date,
-//         description: state.description
-//     })
-// }
-
 export default EventTitle;
