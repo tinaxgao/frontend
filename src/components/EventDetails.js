@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from 'axios';
 import GuestDetails from "./Guest-List/GuestDetails";
 
 import EventTitle from "./Guest-List/Event-Title/EventTitle";
@@ -32,10 +33,10 @@ const EventDetails = () => {
       };
       
       useEffect(() => {
-        axiosWithAuth() //NOT THE CORRECT INFO YET, JUST TESTING API
-          .get()
+        axios //NOT THE CORRECT INFO YET, JUST TESTING API
+          .get('https://lambdapotluck.herokuapp.com/api/events')
           .then((resp) => {
-            console.log(resp.data[0].first_name);
+            console.log("api resp", resp.data); //Delete console.log
           })
           .catch((err) => {
             console.log(err);
