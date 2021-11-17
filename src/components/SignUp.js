@@ -4,8 +4,8 @@ import './SignUp.css';
 import { Link, useNavigate } from 'react-router-dom';
 
 const submitCredentials = {
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     username: "",
     password: ""
@@ -15,7 +15,6 @@ const submitCredentials = {
 function SignUp () {
 
     const [credentials, setCredentials] = useState(submitCredentials);
-    const [submitFailed, setSubmitFailed] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -27,6 +26,7 @@ function SignUp () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/register', credentials)
             .then( response => {
                 navigate('/login');
@@ -35,40 +35,39 @@ function SignUp () {
                 console.log('Sign-up: ', error);
             })
     }
-
     
     return (
         <section className="registration-form">
             <form className="signUpForm" onSubmit={handleSubmit}>
                 <h2 className="title">Sign up for your account</h2>
                     <div className="inputContainer">   
-                        <label for="firstName" className="label">First Name</label>
+                        <label htmlFor="firstName" className="label">First Name</label>
                         <input 
                             type="text" 
                             className="input" 
                             id="firstName" 
-                            name="firstName" 
-                            value={credentials.firstName} 
+                            name="first_name" 
+                            value={credentials.first_name} 
                             onChange={handleChange}
                             placeholder="a"
                         />
                     </div>
                     <div className="inputContainer">
                         <div className='last-name namefield'>       
-                            <label for="lastName" className="label">Last Name</label>
+                            <label htmlFor="lastName" className="label">Last Name</label>
                         </div>
                         <input 
                             type="text" 
                             className="input" 
                             id="lastName" 
-                            name="lastName" 
-                            value={credentials.lastName} 
+                            name="last_name" 
+                            value={credentials.last_name} 
                             onChange={handleChange}
                             placeholder="a"
                         />
                     </div>
                     <div className="inputContainer">
-                        <label for="email" className="label">Email</label>
+                        <label htmlFor="email" className="label">Email</label>
                         <input 
                             type="email" 
                             className="input" 
@@ -80,7 +79,7 @@ function SignUp () {
                         />
                     </div>
                     <div className="inputContainer">
-                    <label for="username" className="label">Username</label>
+                    <label htmlFor="username" className="label">Username</label>
                         <input 
                             type="text" 
                             className="input" 
@@ -92,7 +91,7 @@ function SignUp () {
                         />
                     </div>
                     <div className="inputContainer">
-                    <label for="password" className="label">Password</label>
+                    <label htmlFor="password" className="label">Password</label>
                         <input 
                             type="password" 
                             className="input" 
@@ -103,7 +102,7 @@ function SignUp () {
                             placeholder="a"
                         />
                     </div>
-                <button type="submit" class="submitBtn" value="Sign up">Sign Up</button>
+                <button type="submit" className="submitBtn" value="Sign up">Sign Up</button>
                 <p>Already have an account?</p>
                 <Link to='/login'>Login</Link>
             </form>
