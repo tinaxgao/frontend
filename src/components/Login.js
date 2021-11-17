@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-// Q: Are we using an email or usename for sign in?
 const initialCredentials = {
     username: "",
     password: ""
@@ -26,8 +25,8 @@ function Login (props) {
             .then( response => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('username', credentials.username); // Simply work around instead of using state in app.js or redux
+                props.setIsLoggedIn(true); // From App.JS to show the Logout link in the header
                 setLoginFailed(false);
-                props.setIsLoggedIn(true);
                 navigate('/profile');
             })
             .catch( error => {
@@ -38,7 +37,7 @@ function Login (props) {
 
     return (
         <div className="container">
-            <h2>Enter your username and password</h2><br/>
+            <h2 className="title">Enter your username and password</h2>
             <form onSubmit={handleSubmit}>
 
                 <label htmlFor="username">Username: </label>
@@ -56,6 +55,7 @@ function Login (props) {
                     value={credentials.password} 
                     onChange={handleChange} 
                     placeholder="Enter password..." /><br/><br/>
+                    
                 <div>
                     { loginFailed && <p className="error-msg">Username or password incorrect </p>}
                 </div>
