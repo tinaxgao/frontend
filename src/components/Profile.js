@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import EventList from './EventList';
 import { useNavigate } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios'; // FOR TESTING ONLY - REMOVE WHEN DONE
 
 import './Profile.css';
 
@@ -20,19 +21,22 @@ const Profile = (props) => {
 
     // ----- Populate w. Potluck events the user created or is invited to
     useEffect ( () => {
-        
-        /* add axios call
-        axiosWithAuth().get(`/events`)
+
+        // NOTE: Currently pulls all events, not just user specific events
+        // axiosWithAuth().get(`/events`)
+        axios.get(`https://lambdapotluck.herokuapp.com/api/events/`)
             .then( response => {
-                console.log('Profile.js: ', response)
+                // console.log('Profile.js: ', response)
                 setEventList(response.data)
             })
             .catch(error => {
                 console.log('Profile.js: ', error)
             })
-        */
+        
        
     }, []);
+
+    console.log('Profile-eventList: ', eventList); // FOR TESTING ONLY - REMOVE WHEN DONE
 
     return (
         <div className="container">
