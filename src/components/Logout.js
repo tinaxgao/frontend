@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth';
 
@@ -20,10 +20,12 @@ function Logout (props) {
     */
 
     // FOR TESTING ONLY - REMOVE LATER
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
-    props.setIsLoggedIn(false);
-    navigate('/home');
+    useEffect ( () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        props.setIsLoggedIn(false);
+        navigate('/');
+    },[])
     // -------------------------------
 
     return (
