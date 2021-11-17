@@ -47,68 +47,87 @@ function SignUp () {
     
     return (
         <section className="registration-form">
-            <div className="title">
-                <h2>Sign up for your account</h2>
+            <form className="signUpForm" onSubmit={handleSubmit}>
+                <h2 className="title">Sign up for your account</h2>
                 <br/>
-                <h3>to plan or attend a potluck!</h3>
-            </div>
-
-            <form onSubmit={handleSubmit}>
+                <h3 className="subTitle">to plan or attend a potluck!</h3>
                 <div className="name">
-                    <div className='first-name namefield'>
-                <div>       
-                <label for="firstName">First Name</label>
+                <div className="inputContainer">   
+                <label for="firstName" className="label">First Name</label>
+                <input 
+                    type="text" 
+                    className="input" 
+                    id="firstName" 
+                    name="firstName" 
+                    value={credentials.firstName} 
+                    onChange={handleChange}
+                    placeholder="a"
+                />
                 </div>
-                <input type="text" id="firstName" 
-                            name="firstName" 
-                            value={credentials.firstName} 
-                            onChange={handleChange} />
-                </div>
-                <br/>
-                <div>
+                <div className="inputContainer">
                 <div className='last-name namefield'>       
-                <label for="lastName">Last Name</label>
+                <label for="lastName" className="label">Last Name</label>
                 </div>
-                <input type="text" id="lastName" 
-                            name="lastName" 
-                            value={credentials.lastName} 
-                            onChange={handleChange}/>
+                <input 
+                    type="text" 
+                    className="input" 
+                    id="lastName" 
+                    name="lastName" 
+                    value={credentials.lastName} 
+                    onChange={handleChange}
+                    placeholder="a"
+                    
+                />
                 </div>
                 </div>
-                <div className="three-inputs">
-                <div>
+                <div className="inputContainer">
                     <div>       
-                    <label for="email">Email</label>
+                    <label for="email" className="label">Email</label>
                     </div>
-                    <input type="email" id="email" 
-                            name="email"   
-                            value={credentials.email} 
-                            onChange={handleChange}/><br/><br/>
+                    <input 
+                        type="email" 
+                        className="input" 
+                        id="email" 
+                        name="email"   
+                        value={credentials.email} 
+                        onChange={handleChange}
+                        placeholder="a"
+                    />
+                    <br/><br/>
                     </div>
-                    <div>
+                    <div className="inputContainer">
                         <div>       
-                    <label for="username">Username</label>
+                    <label for="username" className="label">Username</label>
                     </div>
-                    <input type="text" id="username" 
-                            name="username"   
-                            value={credentials.username} 
-                            onChange={handleChange} /><br/><br/>
+                    <input 
+                        type="text" 
+                        className="input" 
+                        id="username" 
+                        name="username"   
+                        value={credentials.username} 
+                        onChange={handleChange}
+                        placeholder="a" 
+                    />
+                    <br/><br/>
                     </div>
-                    <div>
+                    <div className="inputContainer">
                         <div>       
-                    <label for="password">Password</label>
+                    <label for="password" className="label">Password</label>
                     </div>
-                    <input type="password" id="password" 
-                            name="password"   
-                            value={credentials.password} 
-                            onChange={handleChange}/><br/><br/>
+                    <input 
+                        type="password" 
+                        className="input" 
+                        id="password" 
+                        name="password"   
+                        value={credentials.password} 
+                        onChange={handleChange}
+                        placeholder="a"
+                    />
+                    <br/><br/>
                     </div>
-                </div>
-                <div className='button-div'>
-                    <button className='sign-in'>Submit</button>
+                <button type="submit" class="submitBtn" value="Sign up">Sign Up</button>
                     <br/>
                     {/* <p>Already have an account? Log in.</p> */}
-                </div>
             </form>
         </section>   
     )
