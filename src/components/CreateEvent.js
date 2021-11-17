@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from 'axios'; // <<<<< FOR TESTING - REMOVE WHEN DONE
 
 const initialEvent = {
-    title:"",
-    date:"",
-    location:"",
-    description:"",
+    event_title:"",
+    event_location:"",
+    event_description:"",
+    event_date:"",
 }
 
 const CreateEvent = () => {
@@ -22,13 +23,15 @@ const CreateEvent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosWithAuth().post('/create', event)
+        // axiosWithAuth().post('/events', event)
+        axios.post('https://lambdapotluck.herokuapp.com/api/events', event)
             .then(response => {
                 console.log('CreateEvent.js: ', response);
                 navigate('/profile');
             })
             .catch(error => {
                 console.log('CreateEvent.js: ', error)
+                console.log(event)
             })
     }
 
@@ -41,8 +44,8 @@ const CreateEvent = () => {
               <label>Title:
                     <input
                         type="text"
-                        name="title"
-                        value={event.title}
+                        name="event_title"
+                        value={event.event_title}
                         onChange={handleChange}
                         placeholder="Enter Title Here"
                     />
@@ -51,8 +54,8 @@ const CreateEvent = () => {
               <label>Date:
                     <input
                         type="date"
-                        name="date"
-                        value={event.date}
+                        name="event_date"
+                        value={event.event_date}
                         onChange={handleChange}
                         placeholder="Enter Date Here"
                     />
@@ -61,8 +64,8 @@ const CreateEvent = () => {
               <label>Location:
                     <input
                         type="text"
-                        name="location"
-                        value={event.location}
+                        name="event_location"
+                        value={event.event_location}
                         onChange={handleChange}
                         placeholder="Enter Location"
                     />
@@ -71,8 +74,8 @@ const CreateEvent = () => {
               <label>Description:
                     <input
                         type="text"
-                        name="description"
-                        value={event.description}
+                        name="event_description"
+                        value={event.event_description}
                         onChange={handleChange}
                         placeholder="Enter Description Here"
                     />

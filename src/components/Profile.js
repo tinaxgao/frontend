@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import EventList from './EventList';
 import { useNavigate } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import axios from 'axios'; // FOR TESTING ONLY - REMOVE WHEN DONE
+import axios from 'axios'; // <<<<< FOR TESTING - REMOVE WHEN DONE
 
 import './Profile.css';
 
 
-const Profile = (props) => {
+const Profile = () => {
     
-    const name = 'Sean'; // TEMP - Replace w. props.firstName here and in JSX
     const [ eventList, setEventList ] = useState([])
     const navigate = useNavigate();
 
@@ -26,8 +25,8 @@ const Profile = (props) => {
         // axiosWithAuth().get(`/events`)
         axios.get(`https://lambdapotluck.herokuapp.com/api/events/`)
             .then( response => {
-                // console.log('Profile.js: ', response)
-                setEventList(response.data)
+                console.log('Profile - Response: ', response); // <<<<<<< CONSOLE LOG
+                setEventList(response.data);
             })
             .catch(error => {
                 console.log('Profile.js: ', error)
@@ -36,12 +35,12 @@ const Profile = (props) => {
        
     }, []);
 
-    console.log('Profile-eventList: ', eventList); // FOR TESTING ONLY - REMOVE WHEN DONE
+    // console.log('Profile-eventList: ', eventList); // <<<<<< CONSOLE LOG
 
     return (
         <div className="container">
             <div className="profile-header">
-                <h4>{name}'s Potluck Events!</h4>
+                <h4>Your Potluck Events!</h4>
                 <button className="btn-secondary" onClick={handleCreate}>+ Create a Potluck</button>
             </div>
             <div className="event-list">

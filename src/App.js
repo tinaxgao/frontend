@@ -25,28 +25,16 @@ function App() {
       <header>
         <nav className="nav-container">
           <div className="nav-left">
-            {/* <Link to="/Home">Home</Link><br/> */}
+            <Link to="/Home">Home</Link><br/>
           </div>
           <div className="nav-center">
             <h1>Potluck Planner</h1>
           </div>
           <div className="nav-right">
-            { isLoggedIn && <Link to="/logout">Logout</Link>}
+            <Link to="/logout">Logout</Link> {/* REMOVED TERNARY; NOT WORKING */}
           </div>
         </nav>
       </header>
-
-      {/* TEMPORARY LINKS FOR TESTING */}
-      <div className='temp-container'>        
-        <p>Temporary links for testing</p>
-        <Link to="/profile">Profile</Link><br/> 
-        <Link to="/event-list">Event List</Link><br/> 
-        <Link to="/event">Event</Link><br/>
-        <br/>
-        <Link to="/event-details">Event Details</Link><br/>
-        <Link to="/create-event">Create Event</Link><br/>
-      </div>
-      {/* ^^^ TEMPORARY LINKS FOR TESTING ^^^ */}
 
       <div className="body-container">
         <Routes>
@@ -64,6 +52,23 @@ function App() {
           <Route path="/create-event" element={<CreateEvent />}/>
         </Routes>
       </div>
+
+      <footer>
+        {/* TEMPORARY LINKS FOR TESTING */}
+        <p>Temporary links for testing</p>
+        <div className='temp-container'>        
+          <div> 
+            <Link to="/profile">Profile</Link><br/> 
+            <Link to="/event-list">Event List</Link><br/> 
+            <Link to="/event">Event</Link><br/>
+          </div>
+          <div>
+            <Link to="/event-details">Event Details</Link><br/>
+            <Link to="/create-event">Create Event</Link><br/>
+          </div>
+        </div>
+        {/* ^^^ TEMPORARY LINKS FOR TESTING ^^^ */}
+      </footer>
 
     </BrowserRouter>
   );
