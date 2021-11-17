@@ -47,7 +47,7 @@ const EventDetails = () => {
           {!editing ? (
             <EventTitle state={state} />
           ) : (
-            <EventTitleForm state={state} />
+            <EventTitleForm state={state} setState={setState} handleToggle={handleToggle}/>
           )}
           <section className="guest-list">
             <button onClick={handleAttending} className="btn-primary">

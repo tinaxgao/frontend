@@ -34,10 +34,10 @@ const AddGuest = (props) => {
             id="isAttending"
             name="isAttending"
             onChange={handleChange}
-          />
-          I'm attending.
+          />{" "}
+          ✋ I'm attending.
         </label>
-        <label>I will be bringing:</label>
+        <label>🍲 I will be bringing:</label>
         <input
           type="text"
           id="bringingDish"
