@@ -68,6 +68,7 @@ header {
   border: 1px black solid;
 }
 .nav-container {
+  height: 3vh;
   display: flex;
   flex-direction: row;
 }
