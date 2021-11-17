@@ -46,7 +46,7 @@ function App() {
         <Link to="/event-details">Event Details</Link><br/>
         <Link to="/create-event">Create Event</Link><br/>
       </div>
-      {/* TEMPORARY LINKS FOR TESTING */}
+      {/* ^^^ TEMPORARY LINKS FOR TESTING ^^^ */}
 
       <div className="body-container">
         <Routes>
