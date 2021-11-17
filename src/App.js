@@ -17,7 +17,7 @@ import CreateEvent from './components/CreateEvent';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // <<<< MAY REMOVE
 
   return (
     <BrowserRouter>
@@ -40,21 +40,19 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/home" element={<Home />}/>
+          
           <Route path="/signup" element={<SignUp />}/>
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
           <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />}/>
 
           <Route path="/profile" element={<Profile />}/>
-          <Route path="/event-list" element={<EventList />}/>
-          <Route path="/event" element={<Event />} />
-
-          <Route path="/event-details" element={<EventDetails />}/>
+          <Route path="/event-details/:id" element={<EventDetails />}/>
           <Route path="/create-event" element={<CreateEvent />}/>
         </Routes>
       </div>
 
-      <footer>
-        {/* TEMPORARY LINKS FOR TESTING */}
+      {/* TEMPORARY LINKS FOR TESTING */}
+      {/* <footer>
         <p>Temporary links for testing</p>
         <div className='temp-container'>        
           <div> 
@@ -63,12 +61,11 @@ function App() {
             <Link to="/event">Event</Link><br/>
           </div>
           <div>
-            <Link to="/event-details">Event Details</Link><br/>
+            <Link to="/event-details/:id">Event Details</Link><br/>
             <Link to="/create-event">Create Event</Link><br/>
           </div>
         </div>
-        {/* ^^^ TEMPORARY LINKS FOR TESTING ^^^ */}
-      </footer>
+      </footer> */}
 
     </BrowserRouter>
   );

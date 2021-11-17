@@ -23,7 +23,7 @@ function Login (props) {
         e.preventDefault();
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
             .then( response => {
-                console.log('Login: ', response.data) // <<<<<<<<<<<<< CONSOLE LOG
+                console.log('Login: ', response) // <<<<<<<<<<<<< CONSOLE LOG
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('username', credentials.username); // Work around instead of using state in app.js or redux
                 props.setIsLoggedIn(true); // From App.JS to show the Logout link in the header
