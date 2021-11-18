@@ -7,11 +7,7 @@ import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Logout from './components/Logout';
-
-// TEMPORARY IMPORTS FOR TESTING
 import Profile from './components/Profile';
-import EventList from './components/EventList';
-import Event from './components/Event';
 import EventDetails from './components/EventDetails';
 import CreateEvent from './components/CreateEvent';
 
