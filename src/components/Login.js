@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const initialCredentials = {
     email: "",
-    password: ""
+    password: "",
 }
 
 function Login (props) {
@@ -23,18 +23,17 @@ function Login (props) {
         e.preventDefault();
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
             .then( response => {
-                console.log('Login: ', response)
                 localStorage.setItem('token', response.data.token);
-                localStorage.setItem('email', credentials.email); // Work around instead of using state in app.js or redux
-                props.setIsLoggedIn(true); // From App.JS to show the Logout link in the header
-                setLoginFailed(false);
+                props.setUserId(response.data.user_id)
+                setLoginFailed(false); 
                 navigate('/profile');
             })
             .catch( error => {
-                console.log('Login: ', error);
+                console.log('Login.js: ', error);
                 setLoginFailed(true);
             })
     }
+
 
     return (
         <div className="registration-form">

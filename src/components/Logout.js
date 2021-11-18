@@ -1,16 +1,15 @@
-import React, {useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 function Logout (props) {
-
+    const { setUserId } = props;
     const navigate = useNavigate();
     /*
     axiosWithAuth().post('/logout')
         .then( response => {
             localStorage.removeItem('token');
-            localStorage.removeItem('username');
-            props.setIsLoggedIn(false);
+            props.setUserId(null);
             navigate('/home');
             console.log('Logout: ', response); // FOR TESTING ONLY - REMOVE LATER
         })
@@ -18,12 +17,15 @@ function Logout (props) {
             console.log('Logout: ', error);
         })
     */
-
-    console.log('LogOut: ', props)
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
-    props.setIsLoggedIn(false);
-    navigate('/');
+    
+    // ----- Temporary UseEffect while we wait for Logout
+    useEffect( () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        setUserId(null);
+        navigate('/');
+    }, [])
+    
 
     return (
         <div></div>

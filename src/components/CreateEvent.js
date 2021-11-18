@@ -1,17 +1,17 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import axios from 'axios'; // <<<<< FOR TESTING - REMOVE WHEN DONE
 
 const initialEvent = {
+    organizer: "",
     event_title:"",
     event_location:"",
     event_description:"",
     event_date:"",
 }
 
-const CreateEvent = () => {
-    const [event, setEvent] = useState(initialEvent);
+const CreateEvent = (props) => {
+    const [event, setEvent] = useState({...initialEvent, organizer: props.userId});
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -23,15 +23,12 @@ const CreateEvent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosWithAuth().post('/events', event)
-        // axios.post('https://lambdapotluck.herokuapp.com/api/events', event)
+        axiosWithAuth().post('/organizer/event', event)
             .then(response => {
-                console.log('CreateEvent.js - Success: ', response);
                 navigate('/profile');
             })
             .catch(error => {
                 console.log('CreateEvent.js: ', error)
-                console.log('CreateEvent.js - Event Object: ', event)
             })
     }
 
