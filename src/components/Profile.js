@@ -25,7 +25,6 @@ const Profile = () => {
         // axiosWithAuth().get(`/events`)
         axios.get(`https://lambdapotluck.herokuapp.com/api/events/`)
             .then( response => {
-                console.log('Profile - Response: ', response); // <<<<<<< CONSOLE LOG
                 setEventList(response.data);
             })
             .catch(error => {
@@ -34,8 +33,6 @@ const Profile = () => {
         
        
     }, []);
-
-    // console.log('Profile-eventList: ', eventList); // <<<<<< CONSOLE LOG
 
     return (
         <div className="full-profile">

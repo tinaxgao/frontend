@@ -31,7 +31,8 @@ function App() {
             <h1>Potluck Planner</h1>
           </div>
           <div className="nav-right">
-            <Link to="/logout">Logout</Link> {/* REMOVED TERNARY; NOT WORKING */}
+            {/* <Link to="/logout">Logout</Link> REMOVED TERNARY; NOT WORKING */}
+            { isLoggedIn && <Link to="/logout">Logout</Link> } {/* REMOVED TERNARY; NOT WORKING */}
           </div>
         </nav>
       </header>
