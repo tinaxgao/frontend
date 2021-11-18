@@ -13,7 +13,7 @@ import CreateEvent from './components/CreateEvent';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // <<<< MAY REMOVE
+  const [ userId, setUserId ] = useState(null);
 
   return (
     <BrowserRouter>
@@ -28,7 +28,7 @@ function App() {
           </div>
           <div className="nav-right">
             {/* <Link to="/logout">Logout</Link> REMOVED TERNARY; NOT WORKING */}
-            { isLoggedIn && <Link to="/logout">Logout</Link> } {/* REMOVED TERNARY; NOT WORKING */}
+            { userId && <Link to="/logout">Logout</Link> } 
           </div>
         </nav>
       </header>
@@ -39,12 +39,12 @@ function App() {
           <Route path="/home" element={<Home />}/>
           
           <Route path="/signup" element={<SignUp />}/>
-          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
-          <Route path="/logout" element={<Logout setIsLoggedIn={setIsLoggedIn} />}/>
+          <Route path="/login" element={<Login setUserId={setUserId}/>}/>
+          <Route path="/logout" element={<Logout setUserId={setUserId}/>}/>
 
-          <Route path="/profile" element={<Profile />}/>
+          <Route path="/profile" element={<Profile userId={userId}/>}/>
           <Route path="/event-details/:id" element={<EventDetails />}/>
-          <Route path="/create-event" element={<CreateEvent />}/>
+          <Route path="/create-event" element={<CreateEvent userId={userId} />}/>
         </Routes>
       </div>
 
