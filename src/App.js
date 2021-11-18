@@ -43,7 +43,7 @@ function App() {
           <Route path="/logout" element={<Logout setUserId={setUserId}/>}/>
 
           <Route path="/profile" element={<Profile userId={userId}/>}/>
-          <Route path="/event-details/:id" element={<EventDetails />}/>
+          <Route path="/event-details/:id" element={<EventDetails userId={userId}/>}/>
           <Route path="/create-event" element={<CreateEvent userId={userId} />}/>
         </Routes>
       </div>
