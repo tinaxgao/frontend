@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 const initialCredentials = {
-    username: "",
+    email: "",
     password: ""
 }
 
@@ -23,8 +23,9 @@ function Login (props) {
         e.preventDefault();
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
             .then( response => {
+                console.log('Login: ', response)
                 localStorage.setItem('token', response.data.token);
-                localStorage.setItem('username', credentials.username); // Work around instead of using state in app.js or redux
+                localStorage.setItem('email', credentials.email); // Work around instead of using state in app.js or redux
                 props.setIsLoggedIn(true); // From App.JS to show the Logout link in the header
                 setLoginFailed(false);
                 navigate('/profile');
@@ -38,15 +39,15 @@ function Login (props) {
     return (
         <div className="registration-form">
             <form className="signUpForm" onSubmit={handleSubmit}>
-                <h2 className="title">Enter your Username and Password</h2>
+                <h2 className="title">Enter your email and Password</h2>
                 <div className="inputContainer">
-                    <label htmlFor="username" className="label">Username: </label>
+                    <label htmlFor="email" className="label">Email: </label>
                     <input 
                         type="text" 
-                        name="username" 
-                        value={credentials.username} 
+                        name="email" 
+                        value={credentials.email} 
                         onChange={handleChange} 
-                        placeholder="Enter username..." 
+                        placeholder="Enter email..." 
                         className="input" 
                     />
                 </div>
@@ -62,7 +63,7 @@ function Login (props) {
                     />
                 </div> 
                 <div>
-                    { loginFailed && <p className="error-msg">Username or password incorrect </p>}
+                    { loginFailed && <p className="error-msg">Email or password incorrect </p>}
                 </div>
                 <button type="submit" className="submitBtn" value="Log In">Log In</button>
                 <p>Don't have an account?</p>

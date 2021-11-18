@@ -19,15 +19,11 @@ function Logout (props) {
         })
     */
 
-    // FOR TESTING ONLY - REMOVE LATER
-    useEffect ( (navigate, props ) => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('username');
-        props.setIsLoggedIn(false);
-        navigate('/');
-
-    },[])
-    // -------------------------------
+    console.log('LogOut: ', props)
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    props.setIsLoggedIn(false);
+    navigate('/');
 
     return (
         <div></div>

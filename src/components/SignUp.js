@@ -7,7 +7,6 @@ const submitCredentials = {
     first_name: "",
     last_name: "",
     email: "",
-    username: "",
     password: ""
 }
 
@@ -78,7 +77,7 @@ function SignUp () {
                             placeholder="a"
                         />
                     </div>
-                    <div className="inputContainer">
+                    {/* <div className="inputContainer">
                     <label htmlFor="username" className="label">Username</label>
                         <input 
                             type="text" 
@@ -89,7 +88,7 @@ function SignUp () {
                             onChange={handleChange}
                             placeholder="a" 
                         />
-                    </div>
+                    </div> */}
                     <div className="inputContainer">
                     <label htmlFor="password" className="label">Password</label>
                         <input 

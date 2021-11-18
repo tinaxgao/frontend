@@ -23,15 +23,15 @@ const CreateEvent = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // axiosWithAuth().post('/events', event)
-        axios.post('https://lambdapotluck.herokuapp.com/api/events', event)
+        axiosWithAuth().post('/events', event)
+        // axios.post('https://lambdapotluck.herokuapp.com/api/events', event)
             .then(response => {
-                console.log('CreateEvent.js: ', response);
+                console.log('CreateEvent.js - Success: ', response);
                 navigate('/profile');
             })
             .catch(error => {
                 console.log('CreateEvent.js: ', error)
-                console.log(event)
+                console.log('CreateEvent.js - Event Object: ', event)
             })
     }
 
