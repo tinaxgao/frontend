@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import GuestDetails from "./GuestDetails";
 
 const AddGuest = (props) => {
   const [newGuest, setNewGuest] = useState([]);
@@ -17,7 +18,7 @@ const AddGuest = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit", newGuest);
-    setGuests([newGuest]);
+    setGuests([...props.guests, newGuest]);
   };
 
   // disables submit button if not checked
