@@ -62,7 +62,7 @@ const EventDetails = () => {
             </button>
             <div className="attending">
               {attending && (
-                <AddGuest attending={attending} handleAttending={handleAttending} setGuests={setGuests} />
+                <AddGuest attending={attending} handleAttending={handleAttending} guests={guests} setGuests={setGuests} />
               )}
             </div>
           </section>
