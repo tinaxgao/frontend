@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const AddGuest = (props) => {
   const [newGuest, setNewGuest] = useState([]);
   const [disabled, setDisabled] = useState(true);
+  const {setGuests} = props;
 
   const handleChange = (e) => {
     const value =
@@ -16,13 +17,16 @@ const AddGuest = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit", newGuest);
-    //axiosWithAuth()
+    setGuests([newGuest]);
   };
 
+  // disables submit button if not checked
   useEffect(() => {
-    if(newGuest.isAttending === true) {
+    if (newGuest.isAttending === true) {
       setDisabled(false);
-    } else {setDisabled(true)}
+    } else {
+      setDisabled(true);
+    }
   }, [newGuest]);
 
   return (
@@ -46,7 +50,9 @@ const AddGuest = (props) => {
           value={newGuest.bringingDish}
           onChange={handleChange}
         />
-        <button className="btn-primary" disabled={disabled}>Submit</button>
+        <button className="btn-primary" disabled={disabled}>
+          Submit
+        </button>
       </form>
 
       <button onClick={props.handleAttending} className="btn-tertiary">

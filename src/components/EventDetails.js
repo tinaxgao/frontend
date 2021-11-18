@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import { useParams } from "react-router-dom";
+
 import axios from 'axios';
 import GuestDetails from "./Guest-List/GuestDetails";
 
@@ -16,27 +17,32 @@ const EventDetails = () => {
         location: "Location",
         date: "MM/DD/YY",
         description: "Description Description Description",
-        guests: [
-          { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
-          { id: 2, firstName: "Luigi", dish: "Apple Pie" },
-          { id: 3, firstName: "Yoshi", dish: "Potatoes" },
-          { id: 4, firstName: "Peach", dish: "Sake" },
-        ],
+        guests: ""
+          // [ { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
+          // { id: 2, firstName: "Luigi", dish: "Apple Pie" },
+          // { id: 3, firstName: "Yoshi", dish: "Potatoes" },
+          // { id: 4, firstName: "Peach", dish: "Sake" }, ];
+        
       };
 
       const [state, setState] = useState(initialState);
+      const [guests, setGuests] = useState([]);
       const [editing, setEditing] = useState(false);
       const [attending, handleAttending] = useAttending(false);
+      const { id } = useParams();
+
+      console.log("guests in eventdetails", guests);
 
       const handleToggle = () => {
         setEditing(!editing);
       };
       
       useEffect(() => {
-        axios //NOT THE CORRECT INFO YET, JUST TESTING API
-          .get('https://lambdapotluck.herokuapp.com/api/events')
+        axios
+          .get(`https://lambdapotluck.herokuapp.com/api/events/${id}`)
           .then((resp) => {
             console.log("api resp", resp.data); //Delete console.log
+            setState(resp.data);
           })
           .catch((err) => {
             console.log(err);
@@ -56,13 +62,13 @@ const EventDetails = () => {
             </button>
             <div className="attending">
               {attending && (
-                <AddGuest attending={attending} handleAttending={handleAttending} />
+                <AddGuest attending={attending} handleAttending={handleAttending} setGuests={setGuests} />
               )}
             </div>
           </section>
           <section className="guest-list">
-            {state.guests.map((i) => (
-              <GuestDetails guests={i} key={i.id} />
+            { guests.map((i) => (
+              <GuestDetails guests={i} key={i.bringingDish} />
             ))}
           </section>
           <section className="event-edit">
