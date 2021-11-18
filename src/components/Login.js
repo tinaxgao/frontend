@@ -37,34 +37,38 @@ function Login (props) {
     }
 
     return (
-        <div className="container">
-            <h2 className="title">Enter your username and password</h2>
-            <form onSubmit={handleSubmit}>
-
-                <label htmlFor="username">Username: </label>
-                <input 
-                    type="text" 
-                    name="username" 
-                    value={credentials.username} 
-                    onChange={handleChange} 
-                    placeholder="Enter username..." /><br/><br/>
-
-                <label htmlFor="password">Password: </label>
-                <input 
-                    type="password" 
-                    name="password" 
-                    value={credentials.password} 
-                    onChange={handleChange} 
-                    placeholder="Enter password..." /><br/><br/>
-                    
+        <div className="registration-form">
+            <form className="signUpForm" onSubmit={handleSubmit}>
+                <h2 className="title">Enter your Username and Password</h2>
+                <div className="inputContainer">
+                    <label htmlFor="username" className="label">Username: </label>
+                    <input 
+                        type="text" 
+                        name="username" 
+                        value={credentials.username} 
+                        onChange={handleChange} 
+                        placeholder="Enter username..." 
+                        className="input" 
+                    />
+                </div>
+                <div className="inputContainer">
+                    <label htmlFor="password" className="label">Password: </label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        value={credentials.password} 
+                        onChange={handleChange} 
+                        placeholder="Enter password..." 
+                        className="input" 
+                    />
+                </div> 
                 <div>
                     { loginFailed && <p className="error-msg">Username or password incorrect </p>}
                 </div>
-                <button>Login</button>
+                <button type="submit" className="submitBtn" value="Log In">Log In</button>
                 <p>Don't have an account?</p>
                 <Link to='/signup'>Sign Up</Link>
             </form>
-
         </div>
     )
 }
