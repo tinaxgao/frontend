@@ -4,9 +4,9 @@ const EventTitle = ({ state }) => {
   return (
     <section className="hero">
       <h1>
-        {state.firstName} is hosting a {state.title} at {state.location} on {state.date}
+        {state.organizer} is hosting a {state.event_title} at {state.event_location} on {state.event_date}
       </h1>
-      <p>{state.description}</p>
+      <p>{state.event_description}</p>
     </section>
   );
 };
