@@ -18,15 +18,15 @@ const EventDetails = (props) => {
         event_location: "Location",
         event_date: "MM/DD/YY",
         event_description: "Description Description Description",
-        guests: ""
-          // [ { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
-          // { id: 2, firstName: "Luigi", dish: "Apple Pie" },
-          // { id: 3, firstName: "Yoshi", dish: "Potatoes" },
-          // { id: 4, firstName: "Peach", dish: "Sake" }, ];
+        guests:
+          [ { id: 1, organizer: "Mario", bringingDish: "Pumpkin Pie" },
+          { id: 2, organizer: "Luigi", bringingDish: "Apple Pie" },
+          { id: 3, organizer: "Yoshi", bringingDish: "Potatoes" },
+          { id: 4, organizer: "Peach", bringingDish: "Sake" } ]
       };
 
       const [state, setState] = useState(initialState);
-      const [guests, setGuests] = useState([]);
+      const [guests, setGuests] = useState(initialState.guests);
       const [editing, setEditing] = useState(false);
       const [attending, handleAttending] = useAttending(false);
       const userId = localStorage.getItem("user_id");
@@ -73,7 +73,7 @@ const EventDetails = (props) => {
           </section>
           <section className="guest-list">
             { guests.map((i) => (
-              <GuestDetails guests={i} key={i.bringingDish} />
+              <GuestDetails guests={i} key={i.id} />
             ))}
           </section>
           <section className="event-edit">

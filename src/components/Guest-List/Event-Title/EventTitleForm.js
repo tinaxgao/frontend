@@ -21,12 +21,12 @@ const EventTitleForm = ({ state, setState, handleToggle }) => {
       <form onSubmit={handleSubmit}>
         <h1>
           {state.organizer} is hosting a{" "}
-          <input type="text" name="title" onChange={handleChange} value={newEventInfo[0].event_title}/> at{" "}
-          <input type="text" name="location" onChange={handleChange} value={newEventInfo[0].event_location}/> on{" "}
+          <input type="text" name="title" onChange={handleChange} value={newEventInfo.event_title}/> at{" "}
+          <input type="text" name="location" onChange={handleChange} value={newEventInfo.event_location}/> on{" "}
           <input type="date" name="date" onChange={handleChange} />
         </h1>
         <p>
-          <input type="text" name="description" onChange={handleChange} value={newEventInfo[0].event_description} />
+          <input type="text" name="description" onChange={handleChange} value={newEventInfo.event_description} />
         </p>
         <button>Update</button>
       </form>
