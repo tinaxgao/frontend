@@ -4,62 +4,143 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	/* font-size: 100%; */
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* font-size: 100%; */
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 html {
   font-size: 62.5%;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
-	line-height: 1.6;
+  line-height: 1.6;
   font-size: 1.6rem;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* ===== UNIVERSAL SELECTOR ===== */
 
 * {
-  box-sizing: border-box; 
-  max-width: 100%; 
+  box-sizing: border-box;
+  max-width: 100%;
   padding: 0; /* May already be in the reset */
-  margin: 0;  /* May already be in the reset */
+  margin: 0; /* May already be in the reset */
 }
 
 /* ===== HEADER - NAV - FOOTER ===== */
@@ -94,7 +175,7 @@ header {
   width: 80%;
   text-align: center;
   margin: auto;
-  border: 2px solid red
+  border: 2px solid red;
 }
 .temp-container {
   width: 80%;
@@ -107,7 +188,7 @@ footer {
   padding: 10px 10px 0px 10px;
   bottom: 0;
   width: 100%;
-  border: 1px solid red
+  border: 1px solid red;
 }
 
 /* =============== */
@@ -125,21 +206,49 @@ footer {
 
 /* BUTTONS: primary = darkest, secondary = lighter, tertiary = lightest & outlined */
 .btn-primary {
-  background-color: blue;
-  padding: .25rem;
-  border: 1px black solid;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px 30px;
+  border: none;
+  background-color: #5d5fef;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.btn-primary:hover {
+  background-color: white;
+  border: #5d5fef solid;
+  color: #5d5fef;
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background-color: lavender;
-  padding: .25rem;
+  padding: 0.25rem;
   border: 1px black solid;
 }
 
 .btn-tertiary {
+  display: block;
+  margin-left: 80%;
+  padding: 8px 20px;
+  border: 3px #5d5fef solid;
   background-color: white;
-  padding: .25rem;
-  border: 1px black solid;
+  color: #5d5fef;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+.btn-tertiary:hover {
+  background-color: #5d5fef;
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* /// FOR EVENT DETAILS DISPLAYED ON PROFILE OR HOME PAGE --- START /// */
@@ -179,39 +288,33 @@ footer {
 /* DISH & GUEST INFO FOR POTLUCK PAGE */
 .guest-list {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: auto;
 }
 
-.attending{
+.attending {
   width: 100%;
 }
 
-.dish-container{
+.dish-container {
   border: 1px black solid;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .guest {
   border: 1px black solid;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .dish {
   border: 1px black solid;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .event-edit {
   text-align: right;
+  margin-top: 20px;
 }
-
-
-
-
-
-
