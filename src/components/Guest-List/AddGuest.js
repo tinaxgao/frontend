@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import GuestDetails from "./GuestDetails";
 
 const AddGuest = (props) => {
   const [newGuest, setNewGuest] = useState([]);

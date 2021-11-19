@@ -1,6 +1,8 @@
 import React from "react";
 
 const EventTitle = ({ state }) => {
+  console.log("eventtitle state:", state)
+
   return (
     <section className="hero">
       <h1>
