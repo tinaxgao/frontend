@@ -8,41 +8,46 @@ import EventTitle from "./Guest-List/Event-Title/EventTitle";
 import EventTitleForm from "./Guest-List/Event-Title/EventTitleForm";
 import AddGuest from "./Guest-List/AddGuest";
 import useAttending from "../hooks/useAttending";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-const EventDetails = () => {
+const EventDetails = (props) => {
     const initialState = {
-        id: 123,
-        firstName: "First Name of Host",
-        title: "Potluck Title",
-        location: "Location",
-        date: "MM/DD/YY",
-        description: "Description Description Description",
+        event_id: 123,
+        organizer: "host user id",
+        event_title: "Potluck Title",
+        event_location: "Location",
+        event_date: "MM/DD/YY",
+        event_description: "Description Description Description",
         guests: ""
           // [ { id: 1, firstName: "Mario", dish: "Pumpkin Pie" },
           // { id: 2, firstName: "Luigi", dish: "Apple Pie" },
           // { id: 3, firstName: "Yoshi", dish: "Potatoes" },
           // { id: 4, firstName: "Peach", dish: "Sake" }, ];
-        
       };
 
       const [state, setState] = useState(initialState);
       const [guests, setGuests] = useState([]);
       const [editing, setEditing] = useState(false);
       const [attending, handleAttending] = useAttending(false);
-      const { id } = useParams();
+      const { userId } = props;
+      const {id} = useParams();
 
-      console.log("guests in eventdetails", guests);
+      console.log("eventdetails - guests:", guests); //Delete console.log
+      console.log("eventdetails - userid props:", userId); //Delete console.log
+      console.log("eventdetails - eventid:", id); //Delete console.log
 
       const handleToggle = () => {
         setEditing(!editing);
       };
       
       useEffect(() => {
-        axios
-          .get(`https://lambdapotluck.herokuapp.com/api/events/${id}`)
+        axiosWithAuth()
+          .get(`/organizer/${userId}`)
           .then((resp) => {
-            console.log("api resp", resp.data); //Delete console.log
-            setState(resp.data);
+            console.log("eventdetails api resp", resp.data); //Delete console.log
+            const currEvt = resp.data.filter(i => (i.event_id == id));
+            console.log("eventdetails currEvt", currEvt); //Delete console.log
+            setState(currEvt[0]);
           })
           .catch((err) => {
             console.log(err);
