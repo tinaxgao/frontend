@@ -6,7 +6,7 @@ const EventList = (props) => {
     const { eventList } = props;
     console.log(props)
     return (
-        <div className="event-list"> 
+        <div> 
             {eventList.map(event => <Event key={event.event_id} event={event}/>)}   
         </div>
     )
