@@ -32,56 +32,59 @@ const CreateEvent = (props) => {
             })
     }
 
-    return (
+return (
 
-        <div className="create-event container">
-            <h2>Create a Potluck Event!</h2>
-            <form onSubmit ={handleSubmit}>
-                
-              <label>Title:
-                    <input
-                        type="text"
-                        name="event_title"
-                        value={event.event_title}
-                        onChange={handleChange}
-                        placeholder="Enter Title Here"
-                    />
-              </label><br/>
-
-              <label>Date:
-                    <input
-                        type="date"
-                        name="event_date"
-                        value={event.event_date}
-                        onChange={handleChange}
-                        placeholder="Enter Date Here"
-                    />
-              </label><br/>
-
-              <label>Location:
-                    <input
-                        type="text"
-                        name="event_location"
-                        value={event.event_location}
-                        onChange={handleChange}
-                        placeholder="Enter Location"
-                    />
-              </label><br/>
-
-              <label>Description:
-                    <input
-                        type="text"
-                        name="event_description"
-                        value={event.event_description}
-                        onChange={handleChange}
-                        placeholder="Enter Description Here"
-                    />
-                </label><br/>
-
-                <input type="submit" value="Create Potluck" />
-            </form>
+<div className="registration-form">
+<form className="signUpForm" onSubmit ={handleSubmit}>
+    <h2 className="title">Create a Potluck Event!</h2>
+        <div className="inputContainer"> 
+            <label className="label">Title:</label>
+                <input
+                    type="text"
+                    name="event_title"
+                    value={event.event_title}
+                    onChange={handleChange}
+                    placeholder="Enter Title Here"
+                    className="input"
+                />
         </div>
-    )
+        <div className="inputContainer">  
+            <label className="label">Date:</label>
+                <input
+                    type="date"
+                    name="event_date"
+                    value={event.event_date}
+                    onChange={handleChange}
+                    placeholder="Enter Date Here"
+                    className="input"
+                />
+        </div>
+        <div className="inputContainer"> 
+            <label className="label">Location:</label>
+                <input
+                    type="text"
+                    name="event_location"
+                    value={event.event_location}
+                    onChange={handleChange}
+                    placeholder="Enter Location"
+                    className="input"
+                />
+        </div>
+        <div className="inputContainer"> 
+            <label className="label">Description:</label>
+                <input
+                    type="text"
+                    name="event_description"
+                    value={event.event_description}
+                    onChange={handleChange}
+                    placeholder="Enter Description Here"
+                    className="input"
+                />
+        </div>
+        <button type="submit" className="submitBtn" value="Create Potluck">Create Potluck</button>
+</form>
+</div>
+)
 }
 
 export default CreateEvent;
