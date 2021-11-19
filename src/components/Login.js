@@ -24,7 +24,8 @@ function Login (props) {
         axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
             .then( response => {
                 localStorage.setItem('token', response.data.token);
-                props.setUserId(response.data.user_id)
+                localStorage.setItem('user_id', response.data.user_id);
+                props.setUserId(response.data.user_id);
                 setLoginFailed(false); 
                 navigate('/profile');
             })

@@ -29,7 +29,7 @@ const EventDetails = (props) => {
       const [guests, setGuests] = useState([]);
       const [editing, setEditing] = useState(false);
       const [attending, handleAttending] = useAttending(false);
-      const { userId } = props;
+      const userId = localStorage.getItem("user_id");
       const {id} = useParams();
 
       console.log("eventdetails - guests:", guests); //Delete console.log
