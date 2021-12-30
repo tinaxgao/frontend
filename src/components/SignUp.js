@@ -26,7 +26,7 @@ function SignUp () {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('https://lambdapotluck.herokuapp.com/api/auth/register', credentials)
+        axios.post('https://potluck3backend.herokuapp.com/api/auth/register', credentials)
             .then( response => {
                 navigate('/login');
             })

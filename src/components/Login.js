@@ -21,7 +21,7 @@ function Login (props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://lambdapotluck.herokuapp.com/api/auth/login', credentials)
+        axios.post('https://potluck3backend.herokuapp.com/api/auth/login', credentials)
             .then( response => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user_id', response.data.user_id);

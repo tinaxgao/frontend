@@ -27,7 +27,6 @@ function App() {
             <h1>Potluck Planner</h1>
           </div>
           <div className="nav-right">
-            {/* <Link to="/logout">Logout</Link> REMOVED TERNARY; NOT WORKING */}
             { userId && <Link to="/logout">Logout</Link> } 
           </div>
         </nav>
@@ -47,22 +46,6 @@ function App() {
           <Route path="/create-event" element={<CreateEvent userId={userId} />}/>
         </Routes>
       </div>
-
-      {/* TEMPORARY LINKS FOR TESTING */}
-      {/* <footer>
-        <p>Temporary links for testing</p>
-        <div className='temp-container'>        
-          <div> 
-            <Link to="/profile">Profile</Link><br/> 
-            <Link to="/event-list">Event List</Link><br/> 
-            <Link to="/event">Event</Link><br/>
-          </div>
-          <div>
-            <Link to="/event-details/:id">Event Details</Link><br/>
-            <Link to="/create-event">Create Event</Link><br/>
-          </div>
-        </div>
-      </footer> */}
 
     </BrowserRouter>
   );
