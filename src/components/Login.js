@@ -25,7 +25,7 @@ function Login (props) {
             .then( response => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user_id', response.data.user_id);
-                props.setUserId(response.data.user_id);
+            
                 setLoginFailed(false); 
                 navigate('/profile');
             })

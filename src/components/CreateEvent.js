@@ -11,7 +11,8 @@ const initialEvent = {
 }
 
 const CreateEvent = (props) => {
-    const [event, setEvent] = useState({...initialEvent, organizer: props.userId});
+    const userId = localStorage.getItem("user_id");
+    const [event, setEvent] = useState({...initialEvent, organizer: userId});
     const navigate = useNavigate();
 
     const handleChange = (e) => {

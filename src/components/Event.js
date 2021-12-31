@@ -19,7 +19,7 @@ const Event = (props) => {
   const handleClick =() => {
     navigate(`/event-details/${event_id}`)
   }
-  console.log(props.event)
+
   return (
   
     <div className="events" key={event_id} onClick={handleClick}>

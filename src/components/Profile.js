@@ -8,7 +8,7 @@ import './Profile.css';
 
 const Profile = (props) => {
     
-    const { userId } = props;
+    const userId = localStorage.getItem("user_id");
     const [ eventList, setEventList ] = useState([])
     const navigate = useNavigate();
 

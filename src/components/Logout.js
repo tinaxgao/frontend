@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 function Logout (props) {
-    const { setUserId } = props;
+    
     const navigate = useNavigate();
     /*
     axiosWithAuth().post('/logout')
@@ -21,8 +21,8 @@ function Logout (props) {
     // ----- Temporary UseEffect while we wait for Logout
     useEffect( () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('username');
-        setUserId(null);
+        localStorage.removeItem('user_id');
+    
         navigate('/');
     }, [])
     

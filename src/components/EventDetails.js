@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import axios from 'axios';
 import GuestDetails from "./Guest-List/GuestDetails";
 
 import EventTitle from "./Guest-List/Event-Title/EventTitle";
@@ -42,7 +41,7 @@ const EventDetails = (props) => {
       
       useEffect(() => {
         axiosWithAuth()
-          .get(`/organizer/${userId}`)
+          .get(`/organizer/${id}/guests`)
           .then((resp) => {
             console.log("eventdetails api resp", resp.data); //Delete console.log
             const currEvt = resp.data.filter(i => (i.event_id == id));
