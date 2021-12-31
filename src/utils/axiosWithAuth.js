@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
     return (
         axios.create({
             headers: { authorization: token },
-            baseURL: 'https://lambdapotluck.herokuapp.com/api'
+            baseURL: 'https://potluck3backend.herokuapp.com/api'
         })
     )
 }
