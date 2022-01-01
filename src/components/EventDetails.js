@@ -44,9 +44,7 @@ const EventDetails = (props) => {
           .get(`/organizer/${id}/guests`)
           .then((resp) => {
             console.log("eventdetails api resp", resp.data); //Delete console.log
-            const currEvt = resp.data.filter(i => (i.event_id == id));
-            console.log("eventdetails currEvt", currEvt); //Delete console.log
-            setState(currEvt[0]);
+           setState(resp.data);
           })
           .catch((err) => {
             console.log(err);
