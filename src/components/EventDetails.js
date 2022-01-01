@@ -41,23 +41,27 @@ const EventDetails = (props) => {
   };
 
   useEffect(() => {
+    
     axiosWithAuth()
       .get(`/organizer/${id}/guests`)
       .then((resp) => {
         console.log("eventdetails api resp", resp.data); //Delete console.log
         setState(resp.data);
+        
       })
       .catch((err) => {
         console.log(err);
-      }, []);
-  });
+      });
+  }, []);
+
+  console.log(state)
 
   return (
     <div>
       {!editing ? (
         <EventTitle state={state} />
       ) : (
-        <EventTitleForm
+          <EventTitleForm
           state={state}
           setState={setState}
           handleToggle={handleToggle}
