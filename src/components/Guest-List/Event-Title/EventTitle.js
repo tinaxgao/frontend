@@ -1,7 +1,7 @@
 import React from "react";
 
 const EventTitle = ({ state }) => {
-  console.log("eventtitle state:", state)
+  console.log("eventtitle state:", state, state.details, state.details.organizer)
 
   return (
     <section className="hero">

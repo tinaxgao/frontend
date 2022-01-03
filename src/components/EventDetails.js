@@ -11,17 +11,19 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const EventDetails = (props) => {
   const initialState = {
-    // event_id: 123,
-    // organizer: "host user id",
-    // event_title: "Potluck Title",
-    // event_location: "Location",
-    // event_date: "MM/DD/YY",
-    // event_description: "Description Description Description",
+    event_id: 123,
+    title: "Potluck Title",
+    details: {
+      organizer: "host user id",
+      location: "Location",
+      date: "MM/DD/YY",
+      description: "Description Description Description",
+    },
     guests: [
-      { id: 1, organizer: "Mario", bringingDish: "Pumpkin Pie" },
-      { id: 2, organizer: "Luigi", bringingDish: "Apple Pie" },
-      { id: 3, organizer: "Yoshi", bringingDish: "Potatoes" },
-      { id: 4, organizer: "Peach", bringingDish: "Sake" },
+      { id: 1, guest: "Mario", bringingDish: "Pumpkin Pie" },
+      { id: 2, guest: "Luigi", bringingDish: "Apple Pie" },
+      { id: 3, guest: "Yoshi", bringingDish: "Potatoes" },
+      { id: 4, guest: "Peach", bringingDish: "Sake" },
     ],
   };
 
@@ -41,32 +43,30 @@ const EventDetails = (props) => {
   };
 
   useEffect(() => {
-    
     axiosWithAuth()
       .get(`/organizer/${id}/guests`)
       .then((resp) => {
         console.log("eventdetails api resp", resp.data); //Delete console.log
         setState(resp.data);
-        
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  console.log(state)
+  console.log(state);
 
   return (
     <div>
-      {/* {!editing ? (
+      {!editing ? (
         <EventTitle state={state} />
       ) : (
-          <EventTitleForm
+        <EventTitleForm
           state={state}
           setState={setState}
           handleToggle={handleToggle}
         />
-      )} */}
+      )}
       <section className="guest-list">
         <button onClick={handleAttending} className="btn-primary">
           Attend

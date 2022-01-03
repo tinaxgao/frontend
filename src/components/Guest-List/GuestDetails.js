@@ -5,7 +5,7 @@ const GuestDetails = (props) => {
 
   return (
     <div className="dish-container">
-      <div className="guest">{props.guests.organizer} is bringing</div>
+      <div className="guest">{props.guests.guest} is bringing</div>
       <div className="dish">{props.guests.bringingDish}</div>
     </div>
   );
