@@ -11,12 +11,12 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const EventDetails = (props) => {
   const initialState = {
-    event_id: 123,
-    organizer: "host user id",
-    event_title: "Potluck Title",
-    event_location: "Location",
-    event_date: "MM/DD/YY",
-    event_description: "Description Description Description",
+    // event_id: 123,
+    // organizer: "host user id",
+    // event_title: "Potluck Title",
+    // event_location: "Location",
+    // event_date: "MM/DD/YY",
+    // event_description: "Description Description Description",
     guests: [
       { id: 1, organizer: "Mario", bringingDish: "Pumpkin Pie" },
       { id: 2, organizer: "Luigi", bringingDish: "Apple Pie" },
@@ -58,7 +58,7 @@ const EventDetails = (props) => {
 
   return (
     <div>
-      {!editing ? (
+      {/* {!editing ? (
         <EventTitle state={state} />
       ) : (
           <EventTitleForm
@@ -66,7 +66,7 @@ const EventDetails = (props) => {
           setState={setState}
           handleToggle={handleToggle}
         />
-      )}
+      )} */}
       <section className="guest-list">
         <button onClick={handleAttending} className="btn-primary">
           Attend
@@ -91,7 +91,7 @@ const EventDetails = (props) => {
         <button onClick={handleToggle} class="btn-tertiary">
           Edit
         </button>
-        <button class="btn-tertiary">Delete</button>
+        <button className="btn-tertiary">Delete</button>
       </section>
     </div>
   );
