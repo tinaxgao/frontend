@@ -12,7 +12,7 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 const EventDetails = (props) => {
   const initialState = {
     event_id: 123,
-    title: "Potluck Title",
+    title: "Title",
     details: {
       organizer: "host user id",
       location: "Location",
@@ -20,22 +20,18 @@ const EventDetails = (props) => {
       description: "Description Description Description",
     },
     guests: [
-      { id: 1, guest: "Mario", bringingDish: "Pumpkin Pie" },
-      { id: 2, guest: "Luigi", bringingDish: "Apple Pie" },
-      { id: 3, guest: "Yoshi", bringingDish: "Potatoes" },
-      { id: 4, guest: "Peach", bringingDish: "Sake" },
+      { id: 1, guest: "Guest", bringingDish: "dish" },
     ],
   };
 
   const [state, setState] = useState(initialState);
-  const [guests, setGuests] = useState(initialState.guests);
+  const [guests, setGuests] = useState(initialState.guests); //delete after replacing
   const [editing, setEditing] = useState(false);
   const [attending, handleAttending] = useAttending(false);
 
   const { id } = useParams();
 
   console.log("eventdetails - guests:", guests); //Delete console.log
-
   console.log("eventdetails - eventid:", id); //Delete console.log
 
   const handleToggle = () => {
@@ -53,8 +49,6 @@ const EventDetails = (props) => {
         console.log(err);
       });
   }, []);
-
-  console.log(state);
 
   return (
     <div>
@@ -83,7 +77,7 @@ const EventDetails = (props) => {
         </div>
       </section>
       <section className="guest-list">
-        {guests.map((i) => (
+        {state.guests.map((i) => (
           <GuestDetails guests={i} key={i.id} />
         ))}
       </section>
