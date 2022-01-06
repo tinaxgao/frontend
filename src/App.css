@@ -167,12 +167,15 @@ textarea {
 /* ===== HEADER - NAV - FOOTER ===== */
 header {
   margin: auto;
-  border: 1px black solid;
+  /* border: 2px black solid; */
 }
 .nav-container {
+  padding: 24px;
   height: 3vh;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  /* border: 1px red solid; */
 }
 .nav-left {
   width: 20%;
@@ -184,6 +187,9 @@ header {
 .nav-center {
   width: 60%;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .nav-right {
   width: 20%;
@@ -194,6 +200,7 @@ header {
 }
 .body-container {
   border: solid 3px #474544;
+  padding: 24px;
   margin: 12px auto;
   position: relative;
   max-width: 780px;
@@ -217,7 +224,7 @@ footer {
 /* =============== */
 
 .hero {
-  border: 1px black solid;
+  /* border: 1px black solid; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -273,6 +280,36 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 
 /* BUTTONS: primary = darkest, secondary = lighter, tertiary = lightest & outlined */
 .btn-primary {
+  background: #474544;
+  border: solid 2px #474544;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.875em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+  margin: 6px 12px 6px 12px;
+}
+.btn-primary:hover {
+  background: none;
+  color: #474544;
+}
+
+.btn-secondary {
+  background-color: lavender;
+  padding: 0.25rem;
+  border: 1px black solid;
+}
+
+.btn-tertiary {
   background: none;
   border: solid 2px #474544;
   color: #474544;
@@ -289,35 +326,11 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
-}
-.btn-primary:hover {
-  background: #474544;
-  color: #F2F3EB;
-}
-
-.btn-secondary {
-  background-color: lavender;
-  padding: 0.25rem;
-  border: 1px black solid;
-}
-
-.btn-tertiary {
-  display: block;
-  margin-left: 80%;
-  padding: 8px 20px;
-  border: 3px #5d5fef solid;
-  background-color: white;
-  color: #5d5fef;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 5px;
-  margin-bottom: 30px;
+  margin: 6px 12px 6px 12px;
 }
 .btn-tertiary:hover {
-  background-color: #5d5fef;
-  color: white;
-  transform: translateY(-2px);
+  background: #999999;
+  color: #F2F3EB;
 }
 
 /* /// FOR EVENT DETAILS DISPLAYED ON PROFILE OR HOME PAGE --- START /// */
@@ -370,16 +383,16 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 
 .dish-container {
   border: 1px black solid;
-  margin: 0.5rem;
+  margin: 2rem;
 }
 
 .guest {
-  border: 1px black solid;
+  
   margin: 0.5rem;
 }
 
 .dish {
-  border: 1px black solid;
+ 
   margin: 0.5rem;
 }
 
