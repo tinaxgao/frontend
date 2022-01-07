@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 // ----- Page Imports -----
-import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
@@ -19,7 +18,7 @@ function App() {
       <header>
         <nav className="nav-container">
           <div className="nav-left">
-            <Link to="/Home">Home</Link>
+            <Link to="/">Home</Link>
             <br />
           </div>
           <div className="nav-center">
@@ -33,8 +32,7 @@ function App() {
 
       <div className="body-container">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Login />} />
 
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
