@@ -1,13 +1,15 @@
 import React from "react";
 
 const EventTitle = ({ state }) => {
-  console.log("eventtitle state:", state, state.details, state.details.organizer)
+  const date = state.details.date.split("T")[0];
 
   return (
     <section className="hero">
-      <h1>
-        {state.details.organizer} is hosting a {state.title} at {state.details.location} on {state.details.date}
-      </h1>
+      <h2>{state.details.organizer} is hosting a</h2>
+      <h1>{state.title}</h1>
+      <h2>at {state.details.location}</h2>
+      <h2> on {date}</h2>
+      <div className="underline" />
       <p>{state.details.description}</p>
     </section>
   );

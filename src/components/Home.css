@@ -8,7 +8,7 @@ height: 90vh;
 width:100%;
 }
 
-.modal-container,h2{
+.modal-container h2{
     justify-content: center;
     background-color: white;
     

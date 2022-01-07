@@ -113,18 +113,22 @@ html {
 body {
   line-height: 1.6;
   font-size: 1.6rem;
-  background-color: #F2F3EB;
+  background-color: #f2f3eb;
 }
 button {
   overflow: visible;
 }
 
-button, select {
+button,
+select {
   text-transform: none;
 }
 
-button, input, select, textarea {
-  color: #5A5A5A;
+button,
+input,
+select,
+textarea {
+  color: #5a5a5a;
   font: inherit;
   margin: 0;
 }
@@ -220,7 +224,6 @@ footer {
   border: 1px solid red;
 }
 
-
 /* =============== */
 
 .hero {
@@ -235,46 +238,64 @@ footer {
   min-height: 30vh;
 }
 
-.hero h1{
-  font-size: 2rem;
-  margin: 2rem;
+.hero h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 1rem;
   text-align: center;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+.hero p {
+  margin: 2rem;
+  font-style: italic;
 }
 
 /* FORM */
 
-input[type='text'], [type='email'], select, textarea {
-	background: none;
+input[type="text"],
+[type="email"],
+select,
+textarea {
+  background: none;
   border: none;
-	border-bottom: solid 2px #474544;
-	color: #474544;
-	font-size: 1.000em;
+  border-bottom: solid 2px #474544;
+  color: #474544;
+  font-size: 1em;
   font-weight: 400;
   letter-spacing: 1px;
-	margin: 0em 0 1.875em 0;
-	padding: 0 0 0.875em 0;
+  margin: 0em 0 1.875em 0;
+  padding: 0 0 0.875em 0;
   text-transform: uppercase;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-input[type='text']:focus, [type='email']:focus, textarea:focus {
-	outline: none;
-	padding: 0 0 0.875em 0;
+input[type="text"]:focus,
+[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  padding: 0 0 0.875em 0;
 }
 
 .underline {
   border-bottom: solid 2px #474544;
-  margin: -0.512em auto;
+  margin: auto;
+  margin-top: 1rem;
   width: 80px;
 }
 
@@ -285,17 +306,17 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: "Helvetica", Arial, sans-serif;
   font-size: 0.875em;
   font-weight: bold;
   outline: none;
   padding: 20px 35px;
   text-transform: uppercase;
   -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
   margin: 6px 12px 6px 12px;
 }
 .btn-primary:hover {
@@ -315,22 +336,22 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
   color: #474544;
   cursor: pointer;
   display: inline-block;
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: "Helvetica", Arial, sans-serif;
   font-size: 0.875em;
   font-weight: bold;
   outline: none;
   padding: 20px 35px;
   text-transform: uppercase;
   -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
   margin: 6px 12px 6px 12px;
 }
 .btn-tertiary:hover {
   background: #999999;
-  color: #F2F3EB;
+  color: #f2f3eb;
 }
 
 /* /// FOR EVENT DETAILS DISPLAYED ON PROFILE OR HOME PAGE --- START /// */
@@ -382,17 +403,17 @@ input[type='text']:focus, [type='email']:focus, textarea:focus {
 }
 
 .dish-container {
-  border: 1px black solid;
+  border: 2px black solid;
   margin: 2rem;
+  padding: 0.75rem;
 }
 
 .guest {
-  
   margin: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .dish {
- 
   margin: 0.5rem;
 }
 
