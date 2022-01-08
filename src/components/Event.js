@@ -6,10 +6,11 @@ import '../styles/Event.css'
 
   
 const Event = (props) => {
-  // const [event, setEvent] = useState({})
-  // const { organizer } = useParams()
   const navigate = useNavigate();
   const { event_description, event_date, event_title, event_location, event_id } = props.event
+
+  // Formatted date
+  const date = ( !!event_date ? event_date.split("T")[0] : event_date )
     
   const handleClick =() => {
     navigate(`/event-details/${event_id}`)
@@ -18,10 +19,10 @@ const Event = (props) => {
   return (
   
     <div className="events" key={event_id} onClick={handleClick}>
-        <h4>Potluck Name: {event_title}</h4>
-        <p>Date: {event_date}</p> 
-        <p>Location: {event_location}</p>
-        <p>Description: {event_description}</p>
+        <p><span>Event Date:</span> {date}</p>
+        <h4>{event_title}</h4>
+        <p><span>Location:</span> {event_location}</p>
+        <p><span>Description:</span> {event_description}</p>
   </div>
 
   );

@@ -7,7 +7,8 @@ import "../styles/Event.css";
 
 const Profile = (props) => {
   const userId = localStorage.getItem("user_id");
-  const [eventList, setEventList] = useState([]);
+  const initialEventState = [{ first_name: "", event_date: "0T" }];
+  const [eventList, setEventList] = useState(initialEventState);
   const navigate = useNavigate();
 
   // ----- On click, navigate to Create Event form
@@ -30,15 +31,15 @@ const Profile = (props) => {
 
   return (
     <div className="full-profile">
-      <div className="profile-header">
-        <h4>Your Potluck Events!</h4>
-        <button className="btn-secondary" onClick={handleClick}>
+      <section className="profile-header">
+        <h3>{eventList[0].first_name}'s events:</h3>
+        <button className="btn-primary" onClick={handleClick}>
           + Create a Potluck
         </button>
-      </div>
-      <div className="events-container">
+      </section>
+      <section className="events-container">
         <EventList userId={userId} eventList={eventList} />
-      </div>
+      </section>
     </div>
   );
 };

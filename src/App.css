@@ -228,10 +228,15 @@ footer {
   border: 1px solid red;
 }
 
-/* === TYPES OF SECTIONS === */
+/* === TYPES OF TEXT === */
 h1 {
   font-size: 2.5rem;
   text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 2.5rem;
   margin-bottom: 2rem;
 }
 
@@ -240,6 +245,7 @@ label {
   text-transform: uppercase;
 }
 
+/* === TYPES OF SECTIONS === */
 .hero {
   /* border: 1px black solid; */
   display: flex;
