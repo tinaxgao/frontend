@@ -1,0 +1,36 @@
+.event-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  border: hotpink solid 1px;
+}
+
+.profile-header {
+  border: 1px solid green;
+  width: 100%;
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  line-height: 2em;
+
+  margin: 12px;
+  padding: 3%;
+  width: 45%;
+  min-width: 250px;
+
+  text-align: left;
+}
+
+.events h4 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.events p {
+  font-size: 1rem;
+}

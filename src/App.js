@@ -22,7 +22,7 @@ function App() {
             <br />
           </div>
           <div className="nav-center">
-            <h1>Potluck Planner</h1>
+            <h2>Potluck Planner</h2>
           </div>
           <div className="nav-right">
             {userId && <Link to="/logout">Logout</Link>}
@@ -34,8 +34,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
 
-          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/logout" element={<Logout />} />
 
           <Route path="/profile" element={<Profile />} />

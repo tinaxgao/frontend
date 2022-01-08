@@ -37,35 +37,35 @@ function Login (props) {
 
 
     return (
-        <div className="registration-form">
-            <form className="signUpForm" onSubmit={handleSubmit}>
-                <h2 className="title">Enter your email and Password</h2>
+        <div className="container">
+            <form onSubmit={handleSubmit}>
+                <h1>Sign in</h1>
                 <div className="inputContainer">
-                    <label htmlFor="email" className="label">Email: </label>
+                    {/* <label htmlFor="email" className="label">Email: </label> */}
                     <input 
                         type="text" 
                         name="email" 
                         value={credentials.email} 
                         onChange={handleChange} 
-                        placeholder="Enter email..." 
+                        placeholder="Enter email" 
                         className="input" 
                     />
                 </div>
                 <div className="inputContainer">
-                    <label htmlFor="password" className="label">Password: </label>
+                    {/* <label htmlFor="password" className="label">Password: </label> */}
                     <input 
                         type="password" 
                         name="password" 
                         value={credentials.password} 
                         onChange={handleChange} 
-                        placeholder="Enter password..." 
+                        placeholder="Enter password" 
                         className="input" 
                     />
                 </div> 
                 <div>
                     { loginFailed && <p className="error-msg">Email or password incorrect </p>}
                 </div>
-                <button type="submit" className="submitBtn" value="Log In">Log In</button>
+                <button type="submit" className="btn-primary" value="Log In">Log In</button>
                 <p>Don't have an account?</p>
                 <Link to='/signup'>Sign Up</Link>
             </form>

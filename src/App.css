@@ -202,20 +202,24 @@ header {
   align-items: center;
   font-size: 1.2rem;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  border: lightblue 1px solid;
+}
+
 .body-container {
   border: solid 3px #474544;
   padding: 24px;
   margin: 12px auto;
   position: relative;
-  max-width: 780px;
 }
 
-.temp-container {
-  width: 80%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: auto;
-}
 footer {
   position: fixed;
   padding: 10px 10px 0px 10px;
@@ -224,7 +228,17 @@ footer {
   border: 1px solid red;
 }
 
-/* =============== */
+/* === TYPES OF SECTIONS === */
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+label {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
 .hero {
   /* border: 1px black solid; */
@@ -256,10 +270,13 @@ footer {
   font-style: italic;
 }
 
+
+
 /* FORM */
 
 input[type="text"],
 [type="email"],
+[type="password"],
 select,
 textarea {
   background: none;
@@ -273,6 +290,7 @@ textarea {
   padding: 0 0 0.875em 0;
   text-transform: uppercase;
   width: 100%;
+  min-width: 250px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -285,10 +303,10 @@ textarea {
   transition: all 0.3s;
 }
 
-input[type="text"]:focus,
-[type="email"]:focus,
+input:focus,
 textarea:focus {
   outline: none;
+  background-color: rgb(207, 240, 233);
   padding: 0 0 0.875em 0;
 }
 
